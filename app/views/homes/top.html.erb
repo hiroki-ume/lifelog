@@ -1,0 +1,18 @@
+<h1>Life Log</h1>
+<h2>ようこそ、LifeLogへ</h2>
+<h3>突然ですが、あなたは人生を有意義に生きれていますか？<br>
+  現代は、便利で自由な時代です。<br>
+  その分、自分について理解しているかどうかが、幸せに直結するのではないでしょうか？<br>
+  LifeLogは、あなたが日常で得た気づきや感動したことを記録し、あなた自身を理解することを手助けする
+  サービスです。<br>
+  まずは、日常（Life）を記録（Log）していくことから始めてみませんか。
+</h3>
+  <div class="btn">
+    <% if user_signed_in? %>
+      <button type="button" name="button"><%= link_to "ログアウト",
+         destroy_user_session_path, method: :delete %></button>
+    <% else %>
+      <button type="button" name="button"><%= link_to "ログイン",
+        user_session_path %></button>
+    <% end %>
+  </div>
