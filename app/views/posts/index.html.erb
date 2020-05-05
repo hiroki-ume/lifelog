@@ -1,23 +1,8 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
     <%= flash[:success] %>
-    <% @posts.each do |post| %>
-    <div class="post-box">
-      <h4>
-        <span class="genre-name"><%= post.genre.name %></span>
-        『<%= post.source %>』からの気づき
-        <%# <%= post.created_at %> %>
-      </h4>
-      <p><%= post.word %></p>
-      <h4>今日からすること</h4>
-      <p><%= post.action %></p>
-      <% if post.user == current_user %>
-        <%= link_to "編集", edit_post_path(post), class: "btn btn-default" %>
-        <%= link_to "削除", post_path(post), method: :delete,
-            data: {confirm: "削除しますか？"}, class: "btn btn-default" %>
-      <% end %>
-    </div>
-
-    <% end %>
+    <%= flash[:notice] %>
+    <%# 投稿の繰り返し表示 %>
+    <%= render "posts/posts_index" %>
   </div>
 </div>

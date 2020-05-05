@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = current_user.posts.all
+    @posts = Post.all
   end
 
   def show
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     if @post.save
       flash[:success] = "Your post up to the world!"
-      redirect_to :index
+      redirect_to :posts
     else
       render :new
     end
@@ -33,6 +33,17 @@ class PostsController < ApplicationController
       redirect_to :posts
     else
       render :edit
+    end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    if post.user_id == current_user.id
+      post.destroy
+      redirect_to :posts
+    else
+      flash[:notice] = "ユーザー以外は削除できません！"
+      render :posts
     end
   end
 
