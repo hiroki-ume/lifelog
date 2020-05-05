@@ -1,0 +1,33 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h4 {
+  display: inline-block;
+  border-bottom: 1px gray solid;
+}
+
+.genre-name {
+  border: 2px solid gray;
+  border-bottom: none;
+  padding: 5px 5px 0 5px;
+  border-radius: 7px;
+}
+
+.post-box {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 7px;
+  background-color: white;
+  border-bottom: 1px solid gray;
+  text-align: center;
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+.post-link {
+
+}

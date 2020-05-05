@@ -8,11 +8,6 @@
   まずは、日常（Life）を記録（Log）していくことから始めてみませんか。
 </h3>
   <div class="btn">
-    <% if user_signed_in? %>
-      <button type="button" name="button"><%= link_to "ログアウト",
-         destroy_user_session_path, method: :delete %></button>
-    <% else %>
-      <button type="button" name="button"><%= link_to "ログイン",
-        user_session_path %></button>
-    <% end %>
+    <%= flash[:success] %>
+    
   </div>

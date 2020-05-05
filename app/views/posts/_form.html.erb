@@ -1,0 +1,15 @@
+<%= form_for(@post) do |f| %>
+
+<%= f.collection_select(:genre_id, @genres, :id, :name) %><br>
+
+<%= f.label :source %>
+<%= f.text_field :source %><br>
+
+<%= f.label :word %>
+<%= f.text_field :word %><br>
+
+<%= f.label :action %>
+<%= f.text_field :action %><br>
+
+<%= f.submit 'posts', class: "btn btn-primary" %>
+<% end %>
