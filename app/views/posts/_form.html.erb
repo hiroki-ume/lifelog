@@ -1,15 +1,30 @@
 <%= form_for(@post) do |f| %>
+<div class="field">
+  <%= f.label "ジャンルを選択してください" %><br>
+  <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+</div>
 
-<%= f.collection_select(:genre_id, @genres, :id, :name) %><br>
 
-<%= f.label :source %>
-<%= f.text_field :source %><br>
+<div class="field">
+  <%= f.label "見たもの（本のタイトル、映画のタイトル）" %><br>
+  <%= f.text_field :source, class: "form" %>
+</div>
 
-<%= f.label :word %>
-<%= f.text_field :word %><br>
+<div class="field">
+  <%= f.label "心に残った言葉" %><br>
+  <%= f.text_field :word, class: "form" %>
+</div>
 
-<%= f.label :action %>
-<%= f.text_field :action %><br>
+<div class="field">
+  <%= f.label "今日からすること" %><br>
+  <%= f.text_field :action, class: "form" %>
+</div>
 
-<%= f.submit 'posts', class: "btn btn-primary" %>
+<div class="field">
+  <%= f.check_box :mailer, {}, "true", "false" %>
+  <%= f.label "毎朝メールでお知らせ" %>
+
+</div>
+
+  <%= f.submit 'posts', class: "btn btn-primary" %>
 <% end %>

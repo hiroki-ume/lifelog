@@ -1,14 +1,31 @@
 <% @posts.each do |post| %>
 <div class="post-box">
-  <p><%= post.user.name %>さん</p>
+  <p><%= link_to post.user.name, user_path(post.user) %>さん</p>
   <h4>
     <span class="genre-name"><%= post.genre.name %></span>
-    『<%= post.source %>』からの気づき
+    <% unless post.source.blank? %>
+      『<%= post.source %>』からの気づき
+    <% else %>
+      気づき
+    <% end %>
     <%# <%= post.created_at %>
   </h4>
   <p><%= post.word %></p>
   <h4>今日からすること</h4>
-  <p><%= post.action %></p>
+  <p>
+    <%= post.action %>
+    <% if post.favorited?(current_user) %>
+      <%= link_to post_favorites_path(post), method: :delete do %>
+        <span class="glyphicon glyphicon-star" aria-hidden="true", style="color: orange;"></span>
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(post.id), method: :post do %>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <% end %>
+    <% end %>
+  </p>
+  <p><%= post.favorites.count %>人が応援しています</p>
+
   <% if post.user == current_user %>
     <%= link_to "編集", edit_post_path(post), class: "btn btn-default" %>
     <%= link_to "削除", post_path(post), method: :delete,

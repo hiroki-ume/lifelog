@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @posts = current_user.posts.all
+    @user = User.find(params[:id])
+    @posts = @user.posts.all
   end
 
   def edit

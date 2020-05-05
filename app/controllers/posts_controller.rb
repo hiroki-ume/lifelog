@@ -51,4 +51,8 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:source, :word, :action, :genre_id)
     end
+
+    def mailer
+
+    end
 end
