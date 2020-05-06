@@ -27,11 +27,18 @@
       </p>
       <p><%= link_to @post.favorites.count, favorites_path(@post) %>人が応援しています</p>
 
+      <%# ログイン中のユーザーにのみ編集・削除ボタンを表示 %>
       <% if @post.user == current_user %>
         <%= link_to "編集", edit_post_path(@post), class: "btn btn-default" %>
         <%= link_to "削除", post_path(@post), method: :delete,
             data: {confirm: "削除しますか？"}, class: "btn btn-default" %>
       <% end %>
+
+      <%# コメント入力フォームの表示 %>
+      <%= render 'comments/form' %>
+
+      <%# コメントの表示 %>
+      <%= render 'comments/comments_index', comments: @all_comments %>
     </div>
   </div>
 </div>

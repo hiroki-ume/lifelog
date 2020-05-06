@@ -1,0 +1,14 @@
+<% if comments.exists? #コメントがない場合はCSSを適用しない%>
+  <div class="comment-box">
+    <% comments.each do |comment| %>
+      <span class="comment-user"><%= link_to comment.user.name, user_path(comment.user) %></span>
+      <span class="comment-content"><%= comment.content %></span>
+      <% if comment.user == current_user #コメントがログインユーザーの場合のみ表示%>
+        <div class="comment-link">
+          <%= link_to "削除", post_comments_path(comment), method: :delete%>
+        </div>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
+<% end %>

@@ -8,7 +8,7 @@
   まずは、日常（Life）を記録（Log）していくことから始めてみませんか。
 </h3>
 <% if user_signed_in? %>
-  <div class="">
-    <%= link_to "投稿してみる", new_post_path %>
+  <div class="button">
+    <%= link_to "投稿してみる", new_post_path, class: "btn btn-default" %>
   </div>
 <% end %>

@@ -1,0 +1,4 @@
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :content, placeholder: "コメントを入力してください", class: "form" %>
+  <%= f.submit "コメントを送信", class: "btn btn-default" %>
+<% end %>
