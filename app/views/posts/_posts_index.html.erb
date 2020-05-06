@@ -25,11 +25,6 @@
     <% end %>
   </p>
   <p><%= link_to post.favorites.count, favorites_path(post) %>人が応援しています</p>
-
-  <% if post.user == current_user %>
-    <%= link_to "編集", edit_post_path(post), class: "btn btn-default" %>
-    <%= link_to "削除", post_path(post), method: :delete,
-        data: {confirm: "削除しますか？"}, class: "btn btn-default" %>
-  <% end %>
+  <p><%= link_to "詳細", post_path(post), class: "btn btn-default" %></p>
 </div>
 <% end %>

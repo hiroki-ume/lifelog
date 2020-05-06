@@ -7,7 +7,7 @@
       <li><%= link_to "新規投稿", new_post_path %></li>
       <li><%= link_to "みんなの投稿一覧へ", posts_path %></li>
     <% if user_signed_in? %>
-      <li><%= link_to "あなたの気づき", user_path(current_user) %></li>
+      <li><%= link_to "マイページ", user_path(current_user) %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
       <li><%= link_to "ログイン", user_session_path %></li>
