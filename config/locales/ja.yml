@@ -1,4 +1,5 @@
 ja:
   activerecord:
     attributes:
-       
+      genre:
+        movie: 映画
