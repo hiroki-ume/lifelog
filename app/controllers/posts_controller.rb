@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = @post.comments.new
-    @all_comments = @post.comments.all 
+    @all_comments = @post.comments.all
   end
 
   def new
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    @genres = Genre.all
     if @post.save
       flash[:success] = "Your post up to the world!"
       redirect_to :posts

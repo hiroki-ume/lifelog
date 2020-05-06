@@ -1,5 +1,8 @@
 ja:
   activerecord:
+    model:
+      post: 投稿
     attributes:
       genre:
         movie: 映画
+        book: 本
