@@ -8,6 +8,9 @@ h4 {
   display: inline-block;
   border-bottom: 1px gray solid;
 }
+a:hover {
+  text-decoration: none;
+}
 
 .field {
   margin-bottom: 20px;
@@ -35,6 +38,8 @@ h4 {
   }
 }
 
-.post-link {
-
+.post-date {
+  color: gray;
+  position: absolute;
+  right: 30px;
 }

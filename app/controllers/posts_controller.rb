@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(id: "DESC")
+    @posts = Post.all
+    # .page(params[:page]).reverse_order
   end
 
   def show
