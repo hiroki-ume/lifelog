@@ -24,7 +24,9 @@
   <p>
     <%= post.action %>
   </p>
-  <p><%= link_to post.favorites.count, favorites_path(post) %>人が応援しています</p>
-  <p><%= link_to "詳細", post_path(post), class: "btn btn-default" %></p>
+  <p>
+    <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています
+    <span class="post-date"><%= post.created_at.strftime('%m月/%d日') %>に投稿</span>
+  </p>
 </div>
 <% end %>
