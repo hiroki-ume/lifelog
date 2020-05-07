@@ -70,6 +70,7 @@ gem 'rubocop-airbnb'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
+gem 'jquery-rails'
 
 group :production do
   gem 'mysql2'

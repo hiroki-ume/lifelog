@@ -13,11 +13,11 @@
   <h4>今日からすること</h4>
     <%# いいねボタンの設置 %>
   <% if post.favorited?(current_user) %>
-    <%= link_to post_favorites_path(post), method: :delete do %>
+    <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
       <span class="glyphicon glyphicon-star" aria-hidden="true", style="color: orange;"></span>
     <% end %>
   <% else %>
-    <%= link_to post_favorites_path(post.id), method: :post do %>
+    <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
       <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
     <% end %>
   <% end %>
