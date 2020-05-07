@@ -1,3 +1,8 @@
-<% @user.following_user.each do |follower| %>
-  <%= link_to follower.name, user_path(follower) %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% @user.following_user.each do |follower| %>
+      <%= attachment_image_tag follower, :profile_image, fallback: "mountain.jpg" %>
+      <%= link_to follower.name, user_path(follower) %>
+    <% end %>
+  </div>
+</div>

@@ -30,3 +30,9 @@
    font-weight: 600;
    display: inline-block;
  }
+
+ img {
+   border-radius: 50%;
+   width: 60px;
+   height: 60px;
+ }

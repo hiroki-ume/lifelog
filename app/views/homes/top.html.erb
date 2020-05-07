@@ -11,4 +11,11 @@
   <div class="button">
     <%= link_to "投稿してみる", new_post_path, class: "btn btn-default" %>
   </div>
+  <div class="action-index">
+    <h3>やることリスト</h3>
+    <% @posts.each do |post| %>
+      <p><%= link_to post.action, post_path(post) %></p>
+    <% end %>
+  </div>
+
 <% end %>
