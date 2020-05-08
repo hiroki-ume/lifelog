@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     @genres = Genre.all
     if @post.save
+      DailyMailer.send_daily_mail(current_user).deliver_now
       flash[:success] = "Your post up to the world!"
       redirect_to :posts
     else
