@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     if post.user_id == current_user.id
       post.destroy
-      redirect_to :posts
+      redirect_to user_path(current_user)
     else
       flash[:notice] = "ユーザー以外は削除できません！"
       render :posts
