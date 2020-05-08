@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     @genres = Genre.all
     if @post.save
-      DailyMailer.send_daily_mail(current_user).deliver_now
       flash[:success] = "Your post up to the world!"
       redirect_to :posts
     else
@@ -34,8 +33,9 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      DailyMailer.send_daily_mail(current_user).deliver_now
       flash[:success] = "Success!"
-      redirect_to :posts
+      redirect_to @post
     else
       render :edit
     end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:source, :word, :action, :genre_id)
+      params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
     end
 
     def mailer

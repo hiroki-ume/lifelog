@@ -6,3 +6,6 @@ ja:
       genre:
         movie: 映画
         book: 本
+      send_mail:
+        true: する
+        false: しない
