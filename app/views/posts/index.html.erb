@@ -3,6 +3,9 @@
     <%= flash[:success] %>
     <%= flash[:notice] %>
     <%# 投稿の繰り返し表示 %>
-    <%= render "posts/posts_index" %>
+    <div class="post_@post_id">
+      <%= render "posts/posts_index" %>
+    </div>
+
   </div>
 </div>

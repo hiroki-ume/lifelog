@@ -9,14 +9,12 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.new(post_id: @post.id)
     @favorite.save
     flash[:success] = "いいねしました"
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @favorite = current_user.favorites.find_by(post_id: @post.id)
     @favorite.destroy
     flash[:notice] = "いいね を取り消しました"
-    redirect_back(fallback_location: root_path)
   end
 
   private
