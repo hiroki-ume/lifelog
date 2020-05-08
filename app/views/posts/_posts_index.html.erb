@@ -10,7 +10,7 @@
     <% end %>
   </h4>
   <p><%= post.word %></p>
-  <h4>今日からすること</h4>
+  <h4><%= link_to '今日からすること', post_path(post) %></h4>
     <%# いいねボタンの設置 %>
   <% if post.favorited?(current_user) %>
     <%= link_to post_favorites_path(post), method: :delete do %>
