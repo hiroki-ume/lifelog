@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'comments/edit'
   devise_for :users
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
     get 'followed' => 'relationships#followed', as: 'followed'
   end
   root "homes#top"
+  get 'about' => 'homes#about'
   resources :posts do
     resource :favorites, only: [:index, :create, :destroy]
     resource :comments, only: [:create, :edit, :update, :destroy]
