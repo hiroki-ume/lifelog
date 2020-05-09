@@ -17,6 +17,7 @@
  @import "bootstrap";
 
  body {
+   width: 100%;
    background-image: url(bird_island.jpg);
    background-position: top;
    background-size: cover;
@@ -28,7 +29,9 @@
     position: relative;
  }
 
- footer {
+ .footer {
+   background-color: white;
+   height: 50px;
    width: 100%;
    text-align: center;
    position: absolute;
