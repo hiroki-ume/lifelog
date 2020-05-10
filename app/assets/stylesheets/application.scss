@@ -17,11 +17,25 @@
  @import "bootstrap";
 
  body {
-   background-image: url(bird_island.jpg);
+   width: 100%;
+   background-image: image-url('bird_island.jpg');
    background-position: top;
    background-size: cover;
    background-color: rgba(250, 250, 250, 0.5);
    background-blend-mode: lighten;
+ }
+
+ .wrapper {
+    position: relative;
+ }
+
+ .footer {
+   background-color: white;
+   height: 50px;
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   bottom: 0;
  }
 
  .site-logo {
@@ -29,4 +43,14 @@
    font-size: 30px;
    font-weight: 600;
    display: inline-block;
+ }
+
+ img {
+   border-radius: 50%;
+   width: 60px;
+   height: 60px;
+ }
+
+ .alert-message {
+   color: red;
  }

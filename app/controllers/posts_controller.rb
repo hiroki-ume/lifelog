@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     # .page(params[:page]).reverse_order
   end
 
@@ -34,8 +34,9 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      DailyMailer.send_daily_mail(current_user).deliver_now
       flash[:success] = "Success!"
-      redirect_to :posts
+      redirect_to @post
     else
       render :edit
     end
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     if post.user_id == current_user.id
       post.destroy
-      redirect_to :posts
+      redirect_to user_path(current_user)
     else
       flash[:notice] = "ユーザー以外は削除できません！"
       render :posts
@@ -54,7 +55,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:source, :word, :action, :genre_id)
+      params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
     end
 
     def mailer

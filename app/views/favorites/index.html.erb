@@ -2,7 +2,8 @@
   <div class="col-md-6 col-md-offset-3">
     <h2>応援している人たち</h2>
     <% @favorites.each do |favorite| %>
-      <%= link_to favorite.user.name, user_path(favorite.user) %>
+      <%= attachment_image_tag favorite.user, :profile_image, :fill, 50, 50, fallback: "mountain.jpg", size: "50x50" %>
+      <%= link_to favorite.user.name, user_path(favorite.user) %><br>
     <% end %>
   </div>
 </div>

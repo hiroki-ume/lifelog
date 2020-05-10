@@ -3,8 +3,18 @@
     <%= form_for(@user) do |f|  %>
 
     <div class="field">
+      <%= f.label "プロフィール画像" %><br>
+      <%= f.attachment_field :profile_image %>
+    </div>
+
+    <div class="field">
       <%= f.label "名前" %><br>
       <%= f.text_field :name, class: "form" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "メールアドレス" %><br>
+      <%= f.email_field :email, class: "form" %>
     </div>
 
     <div class="field">
@@ -12,7 +22,7 @@
       <%= f.text_area :introduce, class: "form" %>
     </div>
 
-    <%= f.submit "プロフィールの更新" %>
+    <%= f.submit "プロフィールの更新", class: "btn btn-default" %>
     <% end %>
   </div>
 </div>

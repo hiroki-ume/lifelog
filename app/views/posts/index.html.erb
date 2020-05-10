@@ -4,5 +4,6 @@
     <%= flash[:notice] %>
     <%# 投稿の繰り返し表示 %>
     <%= render "posts/posts_index" %>
+    <%= paginate @posts, class: "paginate" %>
   </div>
 </div>

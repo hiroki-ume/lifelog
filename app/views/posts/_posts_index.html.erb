@@ -10,15 +10,17 @@
     <% end %>
   </h4>
   <p><%= post.word %></p>
-  <h4>今日からすること</h4>
+  <h4><%= link_to '今日からすること', post_path(post) %></h4>
     <%# いいねボタンの設置 %>
-  <% if post.favorited?(current_user) %>
-    <%= link_to post_favorites_path(post), method: :delete do %>
-      <span class="glyphicon glyphicon-star" aria-hidden="true", style="color: orange;"></span>
-    <% end %>
-  <% else %>
-    <%= link_to post_favorites_path(post.id), method: :post do %>
-      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+  <% if @user_signed_in #ログインしていない場合は表示しない%>
+    <% if post.favorited?(current_user) %>
+      <%= link_to post_favorites_path(post), method: :delete do %>
+        <span class="glyphicon glyphicon-star" aria-hidden="true", style="color: orange;"></span>
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(post.id), method: :post do %>
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+      <% end %>
     <% end %>
   <% end %>
   <p>
@@ -26,7 +28,7 @@
   </p>
   <p>
     <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています
-    <span class="post-date">(<%= post.created_at.strftime('%m/%d') %>に追加)</span>
+    <span class="post-date"><%= post.created_at.strftime('%m月%d日') %>投稿</span>
   </p>
 </div>
 <% end %>

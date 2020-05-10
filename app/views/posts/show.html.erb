@@ -26,6 +26,7 @@
         <% end %>
       </p>
       <p><%= link_to @post.favorites.count, favorites_path(@post) %>人が応援しています</p>
+      <p>メールでお知らせ：<%= @post.send_mail.to_s %></p>
 
       <%# ログイン中のユーザーにのみ編集・削除ボタンを表示 %>
       <% if @post.user == current_user %>
@@ -35,6 +36,7 @@
       <% end %>
 
       <%# コメント入力フォームの表示 %>
+      <p class="alert-message"><%= flash[:alert] %></p>
       <%= render 'comments/form' %>
 
       <%# コメントの表示 %>

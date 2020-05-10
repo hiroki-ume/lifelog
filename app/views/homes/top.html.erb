@@ -7,8 +7,14 @@
   サービスです。<br>
   まずは、日常（Life）を記録（Log）していくことから始めてみませんか。
 </h3>
-<% if user_signed_in? %>
+<% if @user_signed_in %>
   <div class="button">
     <%= link_to "投稿してみる", new_post_path, class: "btn btn-default" %>
+  </div>
+  <div class="action-index">
+    <h3>やることリスト</h3>
+    <% @posts.each do |post| %>
+      <p><%= link_to post.action, post_path(post) %></p>
+    <% end %>
   </div>
 <% end %>
