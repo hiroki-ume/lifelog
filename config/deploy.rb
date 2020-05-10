@@ -2,7 +2,7 @@
 lock "~> 3.14.0"
 
 set :application, "lifelog"
-set :repo_url, "https://github.com/hiroki-ume/lifelog.git"
+set :repo_url, "git@github.com:hiroki-ume/lifelog.git"
 
 set :deploy_to, "/home/ec2-user/lifelog"
 set :rbenv_ruby, '2.5.7'
