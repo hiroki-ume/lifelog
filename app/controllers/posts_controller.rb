@@ -34,11 +34,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      # DailyMailer.send_updated_mail(current_user).deliver_now
-      @user = User.all
-      @user.each do |user|
-        DailyMailer.send_daily_mail(user).deliver_now
-      end
+      DailyMailer.send_daily_mail_users
+
       flash[:success] = "Success!"
       redirect_to @post
     else

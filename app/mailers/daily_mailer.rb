@@ -11,14 +11,14 @@ class DailyMailer < ApplicationMailer
   def send_daily_mail(user)
     @user = user
     @posts = @user.posts.where(send_mail: true)
-    # @user = 0
-    # @users.each do |user|
-    #   @user = user
-    #   @posts = user.posts.where(send_mail: true)
-    #   mail subject: "#{user.name}さんのやることリストです",
-    #   to: user.email
-    # end
     mail subject: "#{@user.name}さんのやることリストです",
       to: user.email
+  end
+
+  def self.send_daily_mail_users
+    @users = User.all
+    @users.each do |user|
+      send_daily_mail(user).deliver_now
+    end
   end
 end

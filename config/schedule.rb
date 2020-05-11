@@ -7,10 +7,10 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-every 3.minutes do
-  command "/usr/bin/some_great_command"
-  runner "DailyMailer.send_daily_mail.deliver"
-  rake "some:great:rake:task"
+every 1.minutes do
+  #command "/usr/bin/some_great_command"
+  runner "DailyMailer.self.send_daily_mail_users"
+  #rake "some:great:rake:task"
 end
 #
  # every 1.day, :at => '9:00 am' do
