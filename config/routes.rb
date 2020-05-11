@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root "homes#top"
   get 'about' => 'homes#about'
   resources :posts do
+    get :search, on: :collection
     resource :favorites, only: [:index, :create, :destroy]
     resource :comments, only: [:create, :edit, :update, :destroy]
   end

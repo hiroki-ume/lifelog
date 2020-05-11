@@ -4,6 +4,11 @@
   </span>
   <nav>
     <ul  class="nav navbar-nav navbar-right">
+      <%= search_form_for @search do |f| %>
+        <%= f.search_field :word_or_action_cont, placeholder: "例）早起き" %>
+        <%= f.submit '検索', class: "btn btn-default" %>
+        <%= f.label "「気づき」または「すること」から検索できます", style: "color: gray;" %>
+      <% end %>
     <% if user_signed_in? #ログインユーザーのみようこそ、と新規投稿を表示%>
       <li>ようこそ、<%= current_user.name %>さん!</li>
       <li><%= link_to "新規投稿", new_post_path %></li>
