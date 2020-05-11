@@ -43,3 +43,9 @@ a:hover {
   position: absolute;
   right: 30px;
 }
+
+@media screen and (max-width:425px) {
+  .post-box {
+    width: 90%;
+  }
+}
