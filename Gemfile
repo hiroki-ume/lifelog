@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -79,3 +80,5 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
 gem 'dotenv-rails'
+gem 'font-awesome-sass', '~> 5.4.1'
+gem 'whenever', require: false

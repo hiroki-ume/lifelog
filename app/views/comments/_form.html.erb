@@ -1,4 +1,5 @@
 <%= form_for [@post, @comment] do |f| %>
   <%= f.text_area :content, placeholder: "コメントを入力してください", class: "form" %>
+  <p style="color: gray;">＊文字数の上限は140字となります</p>
   <%= f.submit "コメントを送信", class: "btn btn-default" %>
 <% end %>

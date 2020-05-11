@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post
     else
-      flash[:alert] = "内容を入力してください"
+      flash[:alert] = "内容を入力または文字数を１４０文字以下にしてください"
       redirect_to post_path(@post)
     end
   end
