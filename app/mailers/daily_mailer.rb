@@ -11,8 +11,7 @@ class DailyMailer < ApplicationMailer
   def send_daily_mail(user)
     @user = user
     @posts = @user.posts.where(send_mail: true)
-    mail subject: "#{@user.name}さんのやることリストです",
-      to: user.email
+    mail(subject: "#{@user.name}さんのやることリストです", to: @user.email)
   end
 
   def self.send_daily_mail_users
