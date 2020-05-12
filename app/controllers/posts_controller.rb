@@ -33,8 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      DailyMailer.send_daily_mail_users
-
+      DailyMailer.send_updated_mail(current_user).deliver
       flash[:success] = "Success!"
       redirect_to @post
     else
@@ -57,5 +56,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
     end
-  
+
 end

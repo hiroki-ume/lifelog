@@ -1,7 +1,5 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
-    <%= flash[:success] %>
-    <%= flash[:notice] %>
     <% if @result.any? %>
       <%= render "posts/posts_index", posts: @result %>
     <% elsif @result.blank? %>
@@ -9,7 +7,6 @@
     <% else %>
       <%# 投稿の繰り返し表示 %>
       <%= render "posts/posts_index", posts: @posts %>
-      <%= paginate @posts, class: "paginate" %>
     <% end %>
   </div>
 </div>

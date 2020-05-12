@@ -2,15 +2,14 @@
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
-require File.expand_path(File.dirname(__FILE__) + "/environment")
 set :environment, :development
-
+env :PATH, ENV['PATH']
 # Example:
 #
 # set :output, "/path/to/my/cron_log.log"
 set :output, 'log/crontab.log'
 #
-every 2.minutes do
+every 30.minutes do
   #command "/usr/bin/some_great_command"
   runner "DailyMailer.send_daily_mail_users"
   #rake "some:great:rake:task"
@@ -21,4 +20,4 @@ end
  # end
 
 # Learn more: http://github.com/javan/whenever
-# /bin/bash -l -c 'cd /home/vagrant/work/lifelog && bundle exec bin/rails runner -e development '\''DailyMailer.send_daily_mail_users'\'' >> log/crontab.log 2>&1'
+ # =>  /bin/bash -l -c 'cd /home/vagrant/work/lifelog && bundle exec bin/rails runner -e development '\''DailyMailer.send_daily_mail_users'\'' >> log/crontab.log 2>&1'
