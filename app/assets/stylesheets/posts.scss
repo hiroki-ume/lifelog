@@ -8,9 +8,14 @@ h4 {
   display: inline-block;
   border-bottom: 1px gray solid;
 }
-a:hover {
-  text-decoration: none;
+
+a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
 }
+
 
 .field {
   margin-bottom: 20px;
@@ -33,6 +38,8 @@ a:hover {
   background-color: white;
   border-bottom: 1px solid gray;
   text-align: center;
+  position: relative;
+  right: 15px;
   &:last-child {
     margin-bottom: 50px;
   }
@@ -46,11 +53,13 @@ a:hover {
 
 @media screen and (max-width:425px) {
   .post-box {
-    width: 300px;
+    width: 170%;
   }
 
   .form {
     width: 200px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .post-date {

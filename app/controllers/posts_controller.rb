@@ -1,9 +1,6 @@
 class PostsController < ApplicationController
-  # before_action :search
   def index
     @posts = Post.page(params[:page]).reverse_order
-
-    # .page(params[:page]).reverse_order
   end
 
   def show
@@ -60,8 +57,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
     end
-    # def search
-    #   @search = Post.ransack(params[:q])
-    #   @result = @search.result(distinct: true)
-    # end
+  
 end

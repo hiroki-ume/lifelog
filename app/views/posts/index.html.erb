@@ -4,7 +4,6 @@
     <%= flash[:notice] %>
     <% if @result.any? %>
       <%= render "posts/posts_index", posts: @result %>
-
     <% elsif @result.blank? %>
       <p>検索結果なし</p>
     <% else %>

@@ -12,17 +12,11 @@
       </h4>
       <p><%= @post.word %></p>
       <h4>今日からすること</h4>
+      <% unless @post.user == current_user #自分の投稿にはいいねできない%>
+        <%= render "favorites/favorite", post: @post if user_signed_in? %>
+      <% end %>
       <p>
         <%= @post.action %>
-        <% if @post.favorited?(current_user) %>
-          <%= link_to post_favorites_path(@post), method: :delete do %>
-            <span class="glyphicon glyphicon-star" aria-hidden="true", style="color: orange;"></span>
-          <% end %>
-        <% else %>
-          <%= link_to post_favorites_path(@post.id), method: :post do %>
-            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-          <% end %>
-        <% end %>
       </p>
       <p><%= link_to @post.favorites.count, favorites_path(@post) %>人が応援しています</p>
 
