@@ -57,3 +57,9 @@
  .alert-message {
    color: red;
  }
+
+ @media screen and　(max-width:425px) {
+   body {
+     color: red;
+   }
+ }

@@ -46,6 +46,15 @@ a:hover {
 
 @media screen and (max-width:425px) {
   .post-box {
-    width: 90%;
+    width: 300px;
+  }
+
+  .form {
+    width: 200px;
+  }
+
+  .post-date {
+    position: absolute;
+    bottom: 5px;
   }
 }
