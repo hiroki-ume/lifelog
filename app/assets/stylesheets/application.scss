@@ -13,15 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
  body {
-   background-image: url(bird_island.jpg);
-   background-position: top;
-   background-size: cover;
-   background-color: rgba(250, 250, 250, 0.5);
+   width: 100%;
+   background-color: lightgray;
    background-blend-mode: lighten;
+ }
+
+ .wrapper {
+    position: relative;
+ }
+
+ .footer {
+   background-color: white;
+   height: 50px;
+   width: 100%;
+   text-align: center;
+   position: absolute;
+   bottom: 0;
  }
 
  .site-logo {
@@ -35,4 +49,14 @@
    border-radius: 50%;
    width: 60px;
    height: 60px;
+ }
+
+ .alert-message {
+   color: red;
+ }
+
+ @media screen and (max-width:425px) {
+   body {
+     background-image: url(mountain.jpg);
+   }
  }

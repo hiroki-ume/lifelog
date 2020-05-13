@@ -1,32 +1,23 @@
-<% @posts.each do |post| %>
-<div class="post-box">
-  <p><%= link_to post.user.name, user_path(post.user) %>さん</p>
-  <h4>
-    <span class="genre-name"><%= post.genre.name %></span>
-    <% unless post.source.blank? %>
-      『<%= post.source %>』からの気づき
-    <% else %>
-      気づき
-    <% end %>
-  </h4>
-  <p><%= post.word %></p>
-  <h4>今日からすること</h4>
-    <%# いいねボタンの設置 %>
-  <% if post.favorited?(current_user) %>
-    <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-      <span class="glyphicon glyphicon-star" aria-hidden="true", style="color: orange;"></span>
-    <% end %>
-  <% else %>
-    <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
-      <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-    <% end %>
-  <% end %>
-  <p>
-    <%= post.action %>
-  </p>
-  <p>
-    <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています
-    <span class="post-date"><%= post.created_at.strftime('%m月%d日') %>投稿</span>
-  </p>
-</div>
-<% end %>
+
+  <div id="post_<%= post.id %>" class="post-box">
+    <p><%= link_to post.user.name, user_path(post.user) %>さん</p>
+    <h4>
+      <span class="genre-name"><%= post.genre.name %></span><br>
+      <% unless post.source.blank? %>
+        『<%= post.source %>』からの気づき
+      <% else %>
+        気づき
+      <% end %>
+    </h4>
+    <p><%= post.word %></p>
+    <h4><%= link_to '今日からすること', post_path(post) %></h4>
+      <%# いいねボタンの設置 %>
+      <%= render "favorites/favorite", post: post %>
+    <p>
+      <%= post.action %>
+    </p>
+    <p>
+      <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています!
+    </p>
+    <p class="post-date"><%= post.created_at.strftime('%m月%d日') %>投稿</p>
+  </div>

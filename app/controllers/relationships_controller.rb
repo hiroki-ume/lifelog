@@ -13,6 +13,15 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def follower_posts
+    @user = User.find(params[:user_id])
+    @follower = @user.following_user
+    # @post = 0
+    # follower.each do |follower|
+    #   @post = follower.posts.all
+    # end
+  end
+
   def followed
     @user = User.find(params[:user_id])
   end

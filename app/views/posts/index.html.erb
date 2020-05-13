@@ -1,11 +1,19 @@
 <div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <%= flash[:success] %>
-    <%= flash[:notice] %>
-    <%# 投稿の繰り返し表示 %>
-    <div class="post_@post_id">
-      <%= render "posts/posts_index" %>
+  <div class="col-md-2">
+    <% if user_signed_in? %>
+      <%= render "posts/sidebar" %>
+    <% end %>
+  </div>
+  <div class="col-md-10">
+    <% if @result.any? %>
+    <div class="posts">
+      <% @result.each do |result| %>
+        <%= render "posts/posts_index", post: result %>
+      <% end %>
+      <%= paginate @result, class: "paginate" %>
     </div>
-
+    <% elsif @result.blank? %>
+      <p>検索結果なし</p>
+    <% end %>
   </div>
 </div>

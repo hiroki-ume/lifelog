@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
   def create
-    post = Post.find(params[:post_id])
-    comment = post.comments.new(comment_params)
-    comment.user_id = current_user.id
-    if comment.save
-      redirect_to post
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to @post
     else
-      render :post
+      flash[:alert] = "内容を入力または文字数を１４０文字以下にしてください"
+      redirect_to post_path(@post)
     end
   end
 

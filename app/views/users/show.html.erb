@@ -5,11 +5,8 @@
     <h4 style="margin-bottom: 40px;"><%= @user.name %></h4>
     <p><%= @user.posts.count %>件の投稿</p>
     <p><%= @user.introduce %></p>
-
-      <%# ログイン中のユーザーにのみ編集ボタンを表示 %>
-    <% if @user == current_user %>
-      <%= link_to '編集', edit_user_path, class: "btn btn-default" %>
-    <% end %>
+    <%= link_to '編集', edit_user_path, class: "btn btn-default" if @user == current_user %>
+    <br>
 
       <%# フォローボタンの設置 %>
     <% unless @user == current_user # ログインユーザーには表示しない%>
@@ -25,8 +22,18 @@
     <span>フォロー中<%= link_to @user.follower.count, user_following_path(@user) %></span>
     <span>フォロワー<%= link_to @user.followed.count, user_followed_path(@user) %></span>
 
+      <%# ログイン中のユーザーにのみ編集ボタン、通知リストを表示 %>
+    <% if @user == current_user %>
+    <div class="mailer-list">
+      <h4>『メールでお知らせ』<br>リスト</h4>
+      <% @posts.where(send_mail: true).each do |post| #通知trueのpostのみを表示%>
+        <p><%= link_to post.action, post_path(post) %></p>
+      <% end %>
+    </div>
+    <% end %>
+
   </div>
   <div class="col-md-6">
-    <%= render "posts/posts_index" %>
+    <%= render "posts/posts_index", posts: @posts %>
   </div>
 </div>

@@ -1,17 +1,20 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1, h2, h3 {
+h1, h2, h3, p, a {
   text-align: center;
 }
 
-.button {
-  margin: 20px auto;
+body {
+}
+
+.btn {
+  margin: 0 auto;
   text-align: center;
 }
 
 .action-index {
-  margin: 0 auto;
+  margin: 50px auto;
   padding: 20px;
   background-color: white;
   width: 500px;

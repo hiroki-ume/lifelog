@@ -13,6 +13,11 @@
     </div>
 
     <div class="field">
+      <%= f.label "メールアドレス" %><br>
+      <%= f.email_field :email, class: "form" %>
+    </div>
+
+    <div class="field">
       <%= f.label "自己紹介" %><br>
       <%= f.text_area :introduce, class: "form" %>
     </div>

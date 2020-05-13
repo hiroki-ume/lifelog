@@ -4,9 +4,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color:rgba(146,153,156,0.7);
+  background-image: url(bird_island.jpg);
+  background-size: cover;
+
+}
+
 h4 {
   display: inline-block;
   border-bottom: 1px gray solid;
+}
+
+a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.sidebar-box {
+  background-color: palegreen;
+  border-radius: 10px;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  top: 160px;
+  left: 30px;
+  &a {
+    color: white;
+  }
 }
 
 .field {
@@ -14,6 +42,7 @@ h4 {
 }
 .form {
   width: 500px;
+  border: 1px solid gray;
 }
 
 .genre-name {
@@ -23,20 +52,58 @@ h4 {
   border-radius: 7px;
 }
 
+.posts {
+  width: 1000px;
+  height: auto;
+  float: left;
+}
+
 .post-box {
+  width: 300px;
   padding: 10px;
-  margin-top: 10px;
+  margin: 10px;
   border-radius: 7px;
   background-color: white;
   border-bottom: 1px solid gray;
   text-align: center;
+  position: relative;
+  float: left;
+  right: 15px;
   &:last-child {
     margin-bottom: 50px;
   }
 }
 
+.post-box-show {
+    width: 600px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 7px;
+    background-color: white;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    position: relative;
+    right: 15px;
+}
+
 .post-date {
   color: gray;
-  position: absolute;
-  right: 30px;
+
+}
+
+@media screen and (max-width:425px) {
+  .post-box {
+    width: 170%;
+  }
+
+  .form {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .post-date {
+    position: absolute;
+    bottom: 5px;
+  }
 }
