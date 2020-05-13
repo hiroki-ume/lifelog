@@ -1,10 +1,7 @@
 <h1>Life Log</h1>
 <h2>ようこそ、LifeLogへ！</h2>
-<h3>早速投稿してみましょう！</h3>
-<% if @user_signed_in %>
-  <div class="button">
-    <%= link_to "投稿してみる", new_post_path, class: "btn btn-default" %>
-  </div>
+<h3>早速気づいたことを投稿してみましょう！</h3>
+<% if user_signed_in? %>
   <div class="action-index">
     <h3>やることリスト</h3>
     <% @posts.each do |post| %>

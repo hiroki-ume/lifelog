@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <% if user_signed_in? %>
       <%= render "posts/sidebar" %>
     <% end %>
   </div>
-  <div class="col-xs-6">
+  <div class="col-md-10">
     <% if @result.any? %>
       <%= render "posts/posts_index", posts: @result %>
     <% elsif @result.blank? %>
