@@ -7,6 +7,7 @@
     <% else %>
       <%# 投稿の繰り返し表示 %>
       <%= render "posts/posts_index", posts: @posts %>
+      <%= paginate @posts, class: "paginate" %>
     <% end %>
   </div>
 </div>
