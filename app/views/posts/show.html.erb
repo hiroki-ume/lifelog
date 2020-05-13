@@ -12,9 +12,7 @@
       </h4>
       <p><%= @post.word %></p>
       <h4>今日からすること</h4>
-      <% unless @post.user == current_user #自分の投稿にはいいねできない%>
-        <%= render "favorites/favorite", post: @post if user_signed_in? %>
-      <% end %>
+        <%= render "favorites/favorite", post: @post %>
       <p>
         <%= @post.action %>
       </p>

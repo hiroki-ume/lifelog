@@ -1,9 +1,12 @@
-<% if post.favorited?(current_user) %>
-  <%= link_to post_favorites_path(post), method: :delete do %>
-    <i class="fa fa-thumbs-up" aria-hidden="true", style="color: gray;"></i>
+<% if (post.user != current_user) && user_signed_in?#自分の投稿,未ログインユーザーには表示しない%>
+  <% if post.favorited?(current_user) %>
+    <%= link_to post_favorites_path(post), method: :delete do %>
+      <i class="fa fa-thumbs-up" aria-hidden="true", style="color: gray;"></i>
+    <% end %>
+  <% else %>
+    <%= link_to post_favorites_path(post), method: :post do %>
+      <i class="fa fa-thumbs-o-up" aria-hidden="true", style="color: gray;" ></i>
+    <% end %>
   <% end %>
-<% else %>
-  <%= link_to post_favorites_path(post.id), method: :post do %>
-    <i class="fa fa-thumbs-o-up" aria-hidden="true", style="color: gray;" ></i>
-  <% end %>
+  <%= post.favorites.count %>
 <% end %>

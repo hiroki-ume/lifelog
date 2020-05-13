@@ -12,12 +12,12 @@
   <p><%= post.word %></p>
   <h4><%= link_to '今日からすること', post_path(post) %></h4>
     <%# いいねボタンの設置 %>
-    <%= render "favorites/favorite", post: post if @user_signed_in %>
+    <%= render "favorites/favorite", post: post %>
   <p>
     <%= post.action %>
   </p>
   <p>
-    <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています
+    <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています!
     <span class="post-date"><%= post.created_at.strftime('%m月%d日') %>投稿</span>
   </p>
 </div>
