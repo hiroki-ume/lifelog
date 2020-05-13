@@ -4,19 +4,24 @@
   </span>
   <nav>
     <ul  class="nav navbar-nav navbar-right">
-      <%= search_form_for @search do |f| %>
-        <%= f.search_field :word_or_action_cont, placeholder: "例）早起き" %>
-        <%= f.submit '検索', class: "btn btn-default" %>
-        <%= f.label "「気づき」または「すること」から検索できます", style: "color: gray;" %>
-      <% end %>
+      <div class="search_box">
+        <%= search_form_for @search do |f| %>
+          <%= f.search_field :word_or_action_cont, placeholder: "例）早起き" %>
+          <%= f.submit '検索', class: "btn btn-default" %>
+          <%= f.label "「気づき」または「すること」から検索できます", style: "color: gray;" %>
+        <% end %>
+      </div>
+
     <% if user_signed_in? #ログインユーザーのみようこそ、と新規投稿を表示%>
       <li>ようこそ、<%= current_user.name %>さん!</li>
+      <li><%= link_to "サイトについて", about_path %></li>
       <li><%= link_to "新規投稿", new_post_path %></li>
       <li><%= link_to "みんなの投稿", posts_path %></li>
       <li><%= link_to "フォローしている人たちの投稿", user_follower_posts_path(current_user), method: :get %></li>
       <li><%= link_to "マイページ", user_path(current_user) %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
+      <li><%= link_to "サイトについて", about_path %></li>
       <li><%= link_to "みんなの投稿", posts_path %></li>
       <li><%= link_to "新規登録", new_user_registration_path %></li>
       <li><%= link_to "ログイン", new_user_session_path %></li>

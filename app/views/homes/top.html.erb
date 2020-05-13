@@ -1,19 +1,6 @@
 <h1>Life Log</h1>
-<h2>ようこそ、LifeLogへ</h2>
-<h3>突然ですが、あなたは人生を有意義に生きれていますか？<br>
-  現代は、便利で自由な時代です。<br>
-  その分、自分について理解しているかどうかが、幸せに直結するのではないでしょうか？<br>
-  LifeLogは、あなたが日常で得た気づきや感動したことを記録し、<br>あなた自身を理解することを手助けする
-  サービスです。<br>
-  まずは、日常（Life）を記録（Log）していくことから始めてみませんか。
-</h3><br>
-
-<h2>LifeLogでできること</h2>
-<h3>
-  日常で経験したこと（本、映画、名言など）を記録していくことができます。<br>
-  それによって自分が感じたこと、やるべきことなどを目に見えるようにし、
-  習慣化することを手助けします。<br>
-</h3>
+<h2>ようこそ、LifeLogへ！</h2>
+<h3>早速投稿してみましょう！</h3>
 <% if @user_signed_in %>
   <div class="button">
     <%= link_to "投稿してみる", new_post_path, class: "btn btn-default" %>
@@ -24,4 +11,6 @@
       <p><%= link_to post.action, post_path(post) %></p>
     <% end %>
   </div>
+<% else %>
+  <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %></p>
 <% end %>

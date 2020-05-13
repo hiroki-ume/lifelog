@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% posts.each do |post| %>
 <div class="post-box">
   <p><%= link_to post.user.name, user_path(post.user) %>さん</p>
   <h4>
@@ -12,17 +12,7 @@
   <p><%= post.word %></p>
   <h4><%= link_to '今日からすること', post_path(post) %></h4>
     <%# いいねボタンの設置 %>
-  <% if @user_signed_in #ログインしていない場合は表示しない%>
-    <% if post.favorited?(current_user) %>
-      <%= link_to post_favorites_path(post), method: :delete do %>
-        <span><i class="fab fa-acquisitions-incorporated"></i></span>
-      <% end %>
-    <% else %>
-      <%= link_to post_favorites_path(post.id), method: :post do %>
-        <span><i class="fab fa-acquisitions-incorporated"></i></span>
-      <% end %>
-    <% end %>
-  <% end %>
+    <%= render "favorites/favorite", post: post if @user_signed_in %>
   <p>
     <%= post.action %>
   </p>

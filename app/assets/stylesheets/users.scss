@@ -9,3 +9,42 @@
   background-color: white;
   border-radius: 10px;
 }
+
+.registration-box {
+  margin: 0 auto;
+}
+
+.field {
+  margin: 0 auto;
+}
+
+@media screen and (max-width:425px) {
+  .wrapper {
+    width: 90%;
+    height: auto;
+  }
+
+  .navbar {
+    width: 120%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .field {
+    font-size: 10px;
+    width: 50px;
+    margin: 0 auto;
+  }
+
+  .actions {
+    width: 30px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  a {
+    text-align: center;
+  }
+}
