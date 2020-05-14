@@ -11,4 +11,12 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def self.search(query)
+    posts = self.order(id: 'DESC')
+    if query.present?
+      posts = posts.where("word LIKE? OR action LIKE? OR source LIKE?",
+      "%#{query}%", "%#{query}%", "%#{query}%")
+    end
+    posts
+  end
 end

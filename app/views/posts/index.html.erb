@@ -2,10 +2,10 @@
   <div class="col-md-2">
     <div class="sidebar">
       <div class="search_box">
-        <%= search_form_for @search do |f| %>
-          <%= f.search_field :word_or_action_cont, placeholder: "例）早起き" %><br>
-          <%= f.submit '検索', class: "btn btn-default" %>
-          <%= f.label "「気づき」または「すること」から検索できます", style: "color: gray;" %>
+        <%= form_tag :search_posts, method: :get do %>
+          <%= text_field_tag "q", "", placeholder: "例）早起き" %>
+          <%= submit_tag "検索" %>
+          <p style="color: gray;">「気づき」または「すること」から検索できます</p>
         <% end %>
       </div>
       <div class="sidebar_link">
@@ -16,15 +16,15 @@
     </div>
   </div>
   <div class="col-md-10">
-    <% if @result.any? %>
-      <% @result.each do |result| %>
-        <div id="post_<%= result.id %>" class="post-box">
-          <%= render "posts/post", post: result %>
+    <% if @posts.blank? %>
+      <p>検索結果なし</p>
+    <% else %>
+      <% @posts.each do |post| %>
+        <div id="post_<%= post.id %>" class="post-box">
+          <%= render "posts/post", post: post %>
         </div>
       <% end %>
-      <%= paginate @result, class: "paginate" %>
-    <% elsif @result.blank? %>
-      <p>検索結果なし</p>
+      <%= paginate @posts, class: "paginate" %>
     <% end %>
   </div>
 </div>

@@ -23,17 +23,14 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   position: relative;
  }
 
  body {
-   position: relative;
    width: 100%;
+   height: auto;
    background-color: lightgray;
    background-blend-mode: lighten;
- }
-
- .wrapper {
-    position: relative;
  }
 
  footer {

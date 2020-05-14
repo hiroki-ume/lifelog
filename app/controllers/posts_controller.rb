@@ -54,6 +54,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search(params[:q]).page(params[:page])
+    render "index"
+  end
+
   private
     def post_params
       params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
