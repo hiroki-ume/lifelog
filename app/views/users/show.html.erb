@@ -34,6 +34,10 @@
 
   </div>
   <div class="col-md-6">
-    <%= render "posts/posts_index", posts: @posts %>
+      <% @posts.each do |post| %>
+      <div class="post-box">
+        <%= render "posts/post", post: post %>
+      </div>
+      <% end %>
   </div>
 </div>

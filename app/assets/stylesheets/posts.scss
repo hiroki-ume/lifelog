@@ -23,18 +23,23 @@ a {
   }
 }
 
-.sidebar-box {
-  background-color: palegreen;
+.sidebar {
+  width: 200px;
+  background-color: white;
   border-radius: 10px;
-  height: 100px;
+  height: 450px;
   text-align: center;
+  padding: 25px;
+  
+}
+
+.form-box {
+  border-bottom: 1px solid gray;
   padding: 10px;
-  position: fixed;
-  top: 160px;
-  left: 30px;
-  &a {
-    color: white;
-  }
+}
+
+.sidebar_link {
+  padding: 10px;
 }
 
 .field {
@@ -52,22 +57,16 @@ a {
   border-radius: 7px;
 }
 
-.posts {
-  width: 1000px;
-  height: auto;
-  float: left;
-}
-
 .post-box {
-  width: 300px;
+  width: 80%;
+  height: auto;
   padding: 10px;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 7px;
   background-color: white;
   border-bottom: 1px solid gray;
   text-align: center;
   position: relative;
-  float: left;
   right: 15px;
   &:last-child {
     margin-bottom: 50px;

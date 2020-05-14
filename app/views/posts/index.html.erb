@@ -1,17 +1,28 @@
 <div class="row">
   <div class="col-md-2">
-    <% if user_signed_in? %>
-      <%= render "posts/sidebar" %>
-    <% end %>
+    <div class="sidebar">
+      <div class="search_box">
+        <%= search_form_for @search do |f| %>
+          <%= f.search_field :word_or_action_cont, placeholder: "例）早起き" %><br>
+          <%= f.submit '検索', class: "btn btn-default" %>
+          <%= f.label "「気づき」または「すること」から検索できます", style: "color: gray;" %>
+        <% end %>
+      </div>
+      <div class="sidebar_link">
+        <% if user_signed_in? %>
+          <%= render "posts/sidebar" %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class="col-md-10">
     <% if @result.any? %>
-    <div class="posts">
       <% @result.each do |result| %>
-        <%= render "posts/posts_index", post: result %>
+        <div id="post_<%= result.id %>" class="post-box">
+          <%= render "posts/post", post: result %>
+        </div>
       <% end %>
       <%= paginate @result, class: "paginate" %>
-    </div>
     <% elsif @result.blank? %>
       <p>検索結果なし</p>
     <% end %>

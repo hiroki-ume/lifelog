@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
     end
     def search
       @search = Post.ransack(params[:q])
-      @result = @search.result(distinct: true).page(params[:page])
+      @result = @search.result(distinct: true).page(params[:page]).reverse_order
     end
 end

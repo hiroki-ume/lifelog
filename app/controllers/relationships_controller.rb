@@ -16,10 +16,7 @@ class RelationshipsController < ApplicationController
   def follower_posts
     @user = User.find(params[:user_id])
     @follower = @user.following_user
-    # @post = 0
-    # follower.each do |follower|
-    #   @post = follower.posts.all
-    # end
+    @follower_posts = Post.where(user_id: @follower).order(created_at: 'DESC')
   end
 
   def followed

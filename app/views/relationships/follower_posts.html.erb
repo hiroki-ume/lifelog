@@ -3,10 +3,10 @@
     <%= render "posts/sidebar" %>
   </div>
   <div class="col-md-10">
-    <h1>フォローしている人たち</h1><br>
-    <% @follower.each do |follower| %>
-    <% @post = follower.posts.all %>
-      <%= render "posts/posts_index", posts: @post %>
+    <% @follower_posts.each do |post| %>
+      <div id="post_<%= post.id %>", class="post-box">
+        <%= render "posts/post", post: post %>
+      </div>
     <% end %>
   </div>
 </div>
