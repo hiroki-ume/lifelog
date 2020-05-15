@@ -1,15 +1,8 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-body {
-  background-color:rgba(146,153,156,0.7);
-  background-image: url(bird_island.jpg);
-  background-size: cover;
-
-}
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 h4 {
   display: inline-block;
@@ -23,28 +16,66 @@ a {
   }
 }
 
-.sidebar {
-  width: 200px;
-  background-color: white;
-  border-radius: 10px;
-  height: 450px;
-  text-align: center;
-  padding: 25px;
-  
+.wrapper {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .sidebar {
+    width: 20%;
+    background-color: white;
+    border-radius: 10px;
+    height: 300px;
+    text-align: center;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .search_box {
+    }
+
+    .sidebar_link {
+    }
+  }
+
+  .post-index {
+    width: 50%;
+    height: auto;
+
+    .post-box {
+      height: auto;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 7px;
+      background-color: white;
+      border-bottom: 1px solid gray;
+      text-align: center;
+      position: relative;
+      right: 15px;
+      &:last-child {
+        margin-bottom: 50px;
+      }
+    }
+  }
 }
 
+// 新規投稿
 .form-box {
-  border-bottom: 1px solid gray;
   padding: 10px;
-}
-
-.sidebar_link {
-  padding: 10px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .field {
   margin-bottom: 20px;
 }
+
 .form {
   width: 500px;
   border: 1px solid gray;
@@ -55,22 +86,6 @@ a {
   border-bottom: none;
   padding: 5px 5px 0 5px;
   border-radius: 7px;
-}
-
-.post-box {
-  width: 80%;
-  height: auto;
-  padding: 10px;
-  margin: 10px auto;
-  border-radius: 7px;
-  background-color: white;
-  border-bottom: 1px solid gray;
-  text-align: center;
-  position: relative;
-  right: 15px;
-  &:last-child {
-    margin-bottom: 50px;
-  }
 }
 
 .post-box-show {
@@ -91,9 +106,26 @@ a {
 }
 
 @media screen and (max-width:425px) {
-  .post-box {
-    width: 170%;
+  .wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+
+    .sidebar {
+      width: 90%;
+      height: auto;
+    }
+
+    .post-index {
+      width: 90%;
+
+      .post-box {
+        margin: 0 auto;
+      }
+    }
   }
+
 
   .form {
     width: 200px;

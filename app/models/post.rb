@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   end
 
   def self.search(query)
-    posts = self.order(id: 'DESC')
+    posts = order(id: 'DESC')
     if query.present?
       posts = posts.where("word LIKE? OR action LIKE? OR source LIKE?",
       "%#{query}%", "%#{query}%", "%#{query}%")

@@ -13,44 +13,70 @@
  *= require_tree .
  *= require_self
  */
-
  @import "bootstrap-sprockets";
  @import "bootstrap";
- @import "font-awesome-sprockets";
- @import "font-awesome";
+
 
  * {
-   margin: 0;
-   padding: 0;
    box-sizing: border-box;
-   position: relative;
+   margin: 0px;
+   padding: 0px;
+ }
+
+ html {
+   width: 100%;
+   height: 100%;
  }
 
  body {
-   width: 100%;
-   height: auto;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
    background-color: lightgray;
    background-blend-mode: lighten;
- }
 
- footer {
-   background-color: white;
-   height: 30px;
-   width: 100%;
-   text-align: center;
-   position: absolute;
-   bottom: 0;
+   header {
+     width: 100%;
+     height: 70px;
+     background-color: white;
 
-   p {
-     line-height: 30px;
+     .header-box {
+       position: absolute;
+       right: 10px;
+       top: 10px;
+       float: left;
+       list-style: none;
+
+       li {
+         float: left;
+         margin-left: 10px;
+         line-height: 70px;
+       }
+     }
+   }
+
+   footer {
+     background-color: white;
+     height: 50px;
+     margin-top: auto;
+     text-align: center;
+
+     p {
+       font-size: 20px;
+       line-height: 30px;
+     }
    }
  }
 
+
+
  .site-logo {
    color: black;
-   font-size: 30px;
-   font-weight: 600;
-   display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    margin: auto 20px;
+    width: 120px;
+    height: 30px;
  }
 
  img {
@@ -66,5 +92,10 @@
  @media screen and (max-width:425px) {
    body {
      background-image: url(mountain.jpg);
+     flex-direction: row;
+
+     footer {
+
+     }
    }
  }

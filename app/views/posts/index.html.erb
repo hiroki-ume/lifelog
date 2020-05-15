@@ -1,21 +1,8 @@
-<div class="row">
-  <div class="col-md-2">
-    <div class="sidebar">
-      <div class="search_box">
-        <%= form_tag :search_posts, method: :get do %>
-          <%= text_field_tag "q", "", placeholder: "例）早起き" %>
-          <%= submit_tag "検索" %>
-          <p style="color: gray;">「気づき」または「すること」から検索できます</p>
-        <% end %>
-      </div>
-      <div class="sidebar_link">
-        <% if user_signed_in? %>
-          <%= render "posts/sidebar" %>
-        <% end %>
-      </div>
-    </div>
+<div class="wrapper">
+  <div class="sidebar">
+    <%= render "sidebar" %>
   </div>
-  <div class="col-md-10">
+  <div class="post-index">
     <% if @posts.blank? %>
       <p>検索結果なし</p>
     <% else %>
@@ -27,4 +14,5 @@
       <%= paginate @posts, class: "paginate" %>
     <% end %>
   </div>
+
 </div>

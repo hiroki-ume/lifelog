@@ -2,13 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.mailer-list {
-  text-align: center;
-  padding: 20px;
-  margin: 20px 0;
-  background-color: white;
-  border-radius: 10px;
+.wrapper {
+  display: flex;
+
+  .profile-box {
+    border-radius: 10px;
+    background-color: white;
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mailer-list {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .post-index {
+    width: 60%;
+  }
+
 }
+
 
 .registration-box {
   margin: 0 auto;
@@ -46,5 +66,16 @@
 
   a {
     text-align: center;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .profile-box {
+      width: 100%;
+    }
   }
 }

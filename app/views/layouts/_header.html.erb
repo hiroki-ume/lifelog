@@ -1,11 +1,9 @@
-<header class="navbar navbar-default">
-  <span class="site-logo">
+<header>
+  <div class="site-logo">
     <%= link_to "Life Log", root_path %>
-  </span>
+  </div>
   <nav>
-    <ul  class="nav navbar-nav navbar-right">
-      
-
+    <ul class="header-box">
     <% if user_signed_in? #ログインユーザーのみようこそ、と新規投稿を表示%>
       <li>ようこそ、<%= current_user.name %>さん!</li>
       <li><%= link_to "サイトについて", about_path %></li>

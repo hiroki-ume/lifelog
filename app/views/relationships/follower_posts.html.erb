@@ -1,8 +1,8 @@
-<div class="row">
-  <div class="col-md-2">
+<div class="wrapper">
+  <div class="sidebar">
     <%= render "posts/sidebar" %>
   </div>
-  <div class="col-md-10">
+  <div class="post-index">
     <% @follower_posts.each do |post| %>
       <div id="post_<%= post.id %>", class="post-box">
         <%= render "posts/post", post: post %>

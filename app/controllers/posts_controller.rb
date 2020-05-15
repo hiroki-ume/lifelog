@@ -26,7 +26,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
@@ -60,8 +60,9 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
-    end
+
+  def post_params
+    params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
+  end
 
 end
