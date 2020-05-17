@@ -18,14 +18,13 @@
   .mailer-list {
     text-align: center;
     padding: 20px;
-    margin: 20px 0;
     background-color: white;
     border-radius: 10px;
   }
 
-  .post-index {
-    width: 60%;
-  }
+  // .post-index {
+  //   width: 60%;
+  // }
 
 }
 
@@ -38,44 +37,42 @@
   margin: 0 auto;
 }
 
+// @media screen and (max-width:425px) {
+//   .wrapper {
+//     width: 90%;
+//     height: auto;
+//   }
+//
+//   .navbar {
+//     width: 120%;
+//   }
+//
+//   .container {
+//     width: 100%;
+//   }
+//
+//   .field {
+//     font-size: 10px;
+//     width: 50px;
+//     margin: 0 auto;
+//   }
+//
+//   .actions {
+//     width: 30px;
+//     margin: 0 auto;
+//     margin-top: 10px;
+//   }
+//
+//   a {
+//     text-align: center;
+//   }
+// }
+
 @media screen and (max-width:425px) {
   .wrapper {
-    width: 90%;
-    height: auto;
-  }
-
-  .navbar {
-    width: 120%;
-  }
-
-  .container {
-    width: 100%;
-  }
-
-  .field {
-    font-size: 10px;
-    width: 50px;
-    margin: 0 auto;
-  }
-
-  .actions {
-    width: 30px;
-    margin: 0 auto;
-    margin-top: 10px;
-  }
-
-  a {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width:425px) {
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-
     .profile-box {
       width: 100%;
+      margin: 0;
     }
   }
 }

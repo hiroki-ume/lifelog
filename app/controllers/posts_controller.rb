@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.publishable.page(params[:page]).reverse_order
     @new_post = Post.new

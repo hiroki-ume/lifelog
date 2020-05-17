@@ -1,6 +1,8 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// require posts.scss
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -55,8 +57,6 @@ a {
       background-color: white;
       border-bottom: 1px solid gray;
       text-align: center;
-      position: relative;
-      right: 15px;
       &:last-child {
         margin-bottom: 50px;
       }
@@ -97,8 +97,6 @@ a {
     background-color: white;
     border-bottom: 1px solid gray;
     text-align: center;
-    position: relative;
-    right: 15px;
 }
 
 .post-date {
@@ -108,11 +106,13 @@ a {
 
 @media screen and (max-width:425px) {
   .wrapper {
+    width: 100%;
+    margin: 10px auto;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    // 投稿一覧画面
     .sidebar {
       width: 90%;
       height: auto;
@@ -120,16 +120,17 @@ a {
 
     .post-index {
       width: 90%;
+      margin-top: 10px;
 
       .post-box {
-        margin: 0 auto;
         width: 100%;
-
-        .post-date {
-          position: absolute;
-          bottom: 0px;
-        }
+        position: none;
       }
+    }
+    // 投稿詳細画面
+    .post-box-show {
+      width: 100%;
+      align-self: center;
     }
   }
 
