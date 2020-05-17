@@ -22,6 +22,11 @@
       <%= f.text_area :introduce, class: "form" %>
     </div>
 
+    <div class="field">
+      <%= f.label "メールでお知らせ" %>
+      <%= f.check_box :send_mail, {}, :true, :false %>
+    </div>
+
     <%= f.submit "プロフィールの更新", class: "btn btn-default" %>
     <% end %>
   </div>

@@ -19,4 +19,5 @@ class Post < ApplicationRecord
     end
     posts
   end
+
 end

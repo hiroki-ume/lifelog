@@ -22,3 +22,31 @@ body {
   text-align: center;
   border-radius: 10px;
 }
+
+.contents-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .contents {
+    text-align: center;
+    margin: 10px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .row {
+
+    .contents-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .contents {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+}

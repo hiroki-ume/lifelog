@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="sidebar">
+    <%= render "sidebar" %>
+  </div>
+  <div class="post-index">
+    <% @favorites.each do |favorite| %>
+      <% post = favorite.post %>
+      <div id="post_<%= post.id %>" class="post-box">
+        <%= render "posts/post", post: post %>
+      </div>
+    <% end %>
+  </div>
+</div>

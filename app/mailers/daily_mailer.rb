@@ -15,7 +15,7 @@ class DailyMailer < ApplicationMailer
   end
 
   def self.send_daily_mail_users
-    @users = User.where(id: 3)
+    @users = User.where(send_mail: true)
     @users.each do |user|
       send_daily_mail(user).deliver_now
     end

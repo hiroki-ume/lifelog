@@ -13,11 +13,7 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def follower_posts
-    @user = User.find(params[:user_id])
-    @follower = @user.following_user
-    @follower_posts = Post.where(user_id: @follower).order(created_at: 'DESC')
-  end
+  
 
   def followed
     @user = User.find(params[:user_id])

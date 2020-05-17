@@ -82,3 +82,4 @@ gem 'kaminari'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'whenever', require: false
 gem 'jquery-rails'
+gem 'factory_bot_rails'

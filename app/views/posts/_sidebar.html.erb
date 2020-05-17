@@ -7,8 +7,21 @@
 </div>
   <% if user_signed_in? %>
     <ul>
-      <li><%= link_to "みんなの投稿", posts_path %></li>
-      <li><%= link_to "フォローしているユーザーの投稿",
-         user_follower_posts_path(current_user) %></li>
+      <li>
+        <i class="fas fa-clipboard-list fa-2x"></i>
+        <%= link_to "みんなの投稿", posts_path %><br><%= page_point(action: :index) %>
+      </li>
+      <li>
+        <i class="fas fa-list-ol fa-2x"></i>
+        <%= link_to "いいねランキング", ranking_path %><%= page_point(action: :ranking) %>
+      </li>
+      <li>
+        <i class="fas fa-user-friends fa-2x"></i>
+        <%= link_to "フォローユーザー投稿", follower_posts_path(current_user) %>
+        <%= page_point(follower_posts_path(current_user)) %>
+      </li>
+      <li>
+        <i class="fas fa-thumbs-up fa-2x"></i>
+        <%= link_to "いいねしている投稿", favorite_posts_path(current_user) %><%= page_point(favorite_posts_path(current_user)) %></li>
     </ul>
   <% end %>

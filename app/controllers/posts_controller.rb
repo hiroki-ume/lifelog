@@ -5,6 +5,21 @@ class PostsController < ApplicationController
     @genres = Genre.all
   end
 
+  def favorite_posts
+    @user = User.find(params[:user_id])
+    @favorites = @user.favorites.all
+  end
+
+  def follower_posts
+    @user = User.find(params[:user_id])
+    @follower = @user.following_user
+    @follower_posts = Post.where(user_id: @follower).order(created_at: 'DESC')
+  end
+
+  def ranking
+    @posts = Post.find(Favorite.group(:post_id).order('count(post_id) DESC').pluck(:post_id))
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = @post.comments.new
@@ -26,7 +41,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
@@ -64,5 +79,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail)
   end
+
+
 
 end

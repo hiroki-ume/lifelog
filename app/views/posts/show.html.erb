@@ -18,7 +18,7 @@
       </p>
       <p><%= link_to @post.favorites.count, favorites_path(@post) %>人が応援しています</p>
 
-      <%# ログイン中のユーザーにのみ編集・削除ボタンを表示 %>
+      <%# 自分の投稿のみ編集・削除ボタンを表示 %>
       <% if @post.user == current_user %>
         <p>メールでお知らせ：<%= @post.send_mail?? "する":"しない" %></p>
         <%= link_to "編集", edit_post_path(@post), class: "btn btn-default" %>

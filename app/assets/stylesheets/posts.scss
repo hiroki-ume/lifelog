@@ -12,7 +12,7 @@ h4 {
 a {
   color: black;
   &:hover {
-    text-decoration: none;
+    border-bottom: none
   }
 }
 
@@ -38,7 +38,8 @@ a {
     .search_box {
     }
 
-    .sidebar_link {
+    li {
+      list-style: none;
     }
   }
 
@@ -122,10 +123,15 @@ a {
 
       .post-box {
         margin: 0 auto;
+        width: 100%;
+
+        .post-date {
+          position: absolute;
+          bottom: 0px;
+        }
       }
     }
   }
-
 
   .form {
     width: 200px;
@@ -133,8 +139,10 @@ a {
     text-align: center;
   }
 
-  .post-date {
-    position: absolute;
-    bottom: 5px;
+  .field {
+    width: 100%;
+    margin: 0;
   }
+
+
 }

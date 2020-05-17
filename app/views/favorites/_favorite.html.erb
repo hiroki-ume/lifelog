@@ -1,11 +1,18 @@
+<head>
+  <style media="screen">
+    .like-btn:hover {
+      transform: translateY(4px);
+    }
+  </style>
+</head>
 <% if (post.user != current_user) && user_signed_in?#自分の投稿,未ログインユーザーには表示しない%>
   <% if post.favorited?(current_user) %>
     <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-      <i class="fa fa-thumbs-up" aria-hidden="true", style="color: gray;"></i>
+      <span class="like-btn"><i class="fa fa-thumbs-up" aria-hidden="true", style="color: gray;"></i></span>
     <% end %>
   <% else %>
     <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-      <i class="fa fa-thumbs-o-up" aria-hidden="true", style="color: gray;" ></i>
+      <span class="like-btn"><i class="fa fa-thumbs-o-up" aria-hidden="true", style="color: gray;" ></i></span>
     <% end %>
   <% end %>
   <%= post.favorites.count %>
