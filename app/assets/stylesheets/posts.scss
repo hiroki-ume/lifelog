@@ -105,44 +105,57 @@ a {
 }
 
 @media screen and (max-width:425px) {
-  .wrapper {
+  .container {
     width: 100%;
-    margin: 10px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // 投稿一覧画面
-    .sidebar {
-      width: 90%;
-      height: auto;
-    }
 
-    .post-index {
-      width: 90%;
-      margin-top: 10px;
+    .wrapper {
+      width: 100%;
+      margin: 10px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      // 投稿一覧画面
+      .sidebar {
+        width: 90%;
+        height: auto;
+      }
 
-      .post-box {
+      .post-index {
+        width: 90%;
+        margin-top: 10px;
+
+        .post-box {
+          width: 100%;
+          position: none;
+        }
+      }
+      // 投稿詳細画面
+      .post-box-show {
         width: 100%;
-        position: none;
+        align-self: center;
       }
     }
-    // 投稿詳細画面
-    .post-box-show {
-      width: 100%;
-      align-self: center;
+
+    .form {
+      width: 200px;
+      margin: 0 auto;
+      text-align: center;
     }
-  }
 
-  .form {
-    width: 200px;
-    margin: 0 auto;
-    text-align: center;
-  }
+    .field {
+      width: 100%;
+      margin: 0;
+    }
 
-  .field {
-    width: 100%;
-    margin: 0;
+    .top-content {
+      width: 90%;
+
+      .action-index {
+        width: 100%;
+      }
+    }
+
   }
 
 

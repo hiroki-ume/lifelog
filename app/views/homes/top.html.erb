@@ -1,13 +1,17 @@
-<h1>Life Log</h1>
-<h2><i class="fas fa-book-open fa-2x"> </i>Welcome to LifeLog！</h2>
-<h3>早速気づいたことを投稿してみましょう！</h3>
-<% if user_signed_in? %>
-  <div class="action-index">
-    <h3>やることリスト</h3>
-    <% @posts.each do |post| %>
-      <p><%= link_to post.action, post_path(post) %></p>
+<div class="wrapper">
+  <div class="top-content">
+    <h1>Life Log</h1>
+    <h2><i class="fas fa-book-open fa-2x"> </i>Welcome to LifeLog！</h2>
+    <h3>早速気づいたことを投稿してみましょう！</h3>
+    <% if user_signed_in? %>
+      <div class="action-index">
+        <h3>やることリスト</h3>
+        <% @posts.each do |post| %>
+          <p><%= link_to post.action, post_path(post) %></p>
+        <% end %>
+      </div>
+    <% else %>
+      <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %></p>
     <% end %>
   </div>
-<% else %>
-  <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-default" %></p>
-<% end %>
+</div>
