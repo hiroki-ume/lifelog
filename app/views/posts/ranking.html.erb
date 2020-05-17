@@ -4,9 +4,9 @@
   </div>
   <div class="post-index">
     <% @posts.each do |post| %>
-      <div id="post_<%= post.id %>" class="post-box">
-        <%= render "posts/post", post: post %>
-      </div>
+        <div id="post_<%= post.id %>" class="post-box">
+          <%= render "posts/post", post: post %>
+        </div>
     <% end %>
   </div>
 </div>

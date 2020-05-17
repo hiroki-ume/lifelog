@@ -3,8 +3,7 @@
     <%= render "sidebar" %>
   </div>
   <div class="post-index">
-    <% @favorites.each do |favorite| %>
-      <% post = favorite.post %>
+    <% @posts.each do |post| %>
       <div id="post_<%= post.id %>" class="post-box">
         <%= render "posts/post", post: post %>
       </div>

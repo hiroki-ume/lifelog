@@ -22,6 +22,12 @@
   </div>
 
   <div class="field">
+    <%= f.check_box :publish_status, {}, :unpublish, :publish %>
+    <%= f.label "公開しない" %>
+
+  </div>
+
+  <div class="field">
     <%= f.check_box :send_mail, {}, "true", "false" %>
     <%= f.label "毎日メールでお知らせ" %><br>
 

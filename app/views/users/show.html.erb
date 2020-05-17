@@ -26,10 +26,11 @@
     <div class="mailer-list">
       <h4>『メールでお知らせ』<br>リスト</h4>
       <% @posts.where(send_mail: true).each do |post| #通知trueのpostのみを表示%>
+
         <p><%= link_to post.action, post_path(post) %></p>
       <% end %>
         <%# メール自体の送信の有無を選択 %>
-      <%= form_for @user do |f| %>
+      <%= form_for(@user) do |f| %>
         <%= f.check_box :send_mail, {}, :true, :false %>
         <%= f.label "メールでお知らせ" %><br>
         <%= f.submit "変更", class: "btn btn-default" %>
