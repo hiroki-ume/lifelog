@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="form-box">
+    <h2>お問い合わせ確認画面</h2>
+    <%= form_for(@inquiry, url: {action: :create}) do |f| %>
+      <div class="field">
+        <%= f.label "お名前：" %>
+        <%= f.hidden_field :name %>
+        <%= @inquiry.name %>
+      </div>
+
+      <div class="field">
+        <%= f.label "メールアドレス：" %>
+        <%= f.hidden_field :email %>
+        <%= @inquiry.email %>
+      </div>
+
+      <div class="field">
+        <%= f.label "お問い合わせ内容：" %>
+        <%= f.hidden_field :content %>
+        <%= @inquiry.content %>
+      </div>
+
+      <div class="action">
+        <%= f.submit '戻る', name: "back", class: "btn btn-default" %>
+        <%= f.submit '送信', class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>

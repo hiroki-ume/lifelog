@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get '/user/:user_id/favorite_posts' => 'posts#favorite_posts', as: "favorite_posts"
   get '/posts/:post_id/favorites' => 'favorites#index', as: "favorites"
   get '/ranking' => 'posts#ranking', as: "ranking"
+  get 'inquiries/new' => 'inquiries#new'
+  post 'inquiries/confirm' => 'inquiries#confirm'
+  post 'inquiries/create' => 'inquiries#create'
+
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
