@@ -29,6 +29,9 @@
     </div>
 
     <%= f.submit "プロフィールの更新", class: "btn btn-default" %>
+    <%= link_to "退会する", registration_path(current_user), method: :delete, data: {confirm: "本当に退会しますか？"}, class: "btn btn-default", style: "color: red;" %>
+    <%= link_to 'パスワードの変更', edit_user_registration_path(current_user) %>
+
     <% end %>
   </div>
 </div>

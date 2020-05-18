@@ -15,8 +15,8 @@ class User < ApplicationRecord
   # フォロー機能
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id"
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id"
-  has_many :following_user, through: :follower, source: :followed
-  has_many :followed_user, through: :followed, source: :follower
+  has_many :following_user, through: :follower, source: :followed, dependent: :destroy
+  has_many :followed_user, through: :followed, source: :follower, dependent: :destroy
 
 
   def follow(user_id)

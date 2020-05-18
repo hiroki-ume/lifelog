@@ -1,0 +1,41 @@
+<div class="form-box">
+  <%= form_for(@post) do |f| %>
+  <div class="field">
+    <%= f.label "ジャンルを選択してください" %><br>
+    <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label "見たもの（本のタイトル、映画のタイトル）" %><br>
+    <%= f.text_field :source, class: "form" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "心に残った言葉" %><br>
+    <%= f.text_field :word, class: "form" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "今日からすること" %><br>
+    <%= f.text_field :action, class: "form" %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :publish_status, {}, :unpublish, :publish %>
+    <%= f.label "公開しない" %>
+
+  </div>
+
+  <div class="field">
+    <%= f.check_box :send_mail, {}, "true", "false" %>
+    <%= f.label "毎日メールでお知らせ" %><br>
+
+  </div>
+
+  <div class="action">
+    <%= f.submit 'posts', class: "btn btn-default" %>
+  </div>
+  <% end %>
+
+</div>
