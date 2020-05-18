@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="profile-box">
+  <div class="sidebar">
     <%= attachment_image_tag @user, :profile_image, :fill, 40, 40,format: 'jpeg', fallback: "mountain.jpg", size: "60x60"  %><br>
     <h4 style="margin-bottom: 40px;"><%= @user.name %></h4>
     <p><%= @user.posts.count %>件の投稿</p>
@@ -41,7 +41,7 @@
   </div>
   <div class="post-index">
       <% @posts.each do |post| %>
-      <div class="post-box">
+      <div id="post_<%= post.id %>" class="post-box">
         <%= render "posts/post", post: post %>
       </div>
       <% end %>

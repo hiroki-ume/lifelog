@@ -9,7 +9,7 @@ env :PATH, ENV['PATH']
 # set :output, "/path/to/my/cron_log.log"
 set :output, 'log/crontab.log'
 
-every 10.minutes do
+every 12.hours do
   # command "/usr/bin/some_great_command"
   runner "DailyMailer.send_daily_mail_users"
   # rake "some:great:rake:task"

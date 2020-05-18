@@ -1,22 +1,8 @@
 <div class="wrapper">
-    <div class="post-box-show">
-      <p><%= link_to @post.user.name, user_path(@post.user) %>さん</p>
-      <h4>
-        <span class="genre-name"><%= @post.genre.name %></span>
-        <% unless @post.source.blank? %>
-          『<%= @post.source %>』からの気づき
-        <% else %>
-          気づき
-        <% end %>
-      </h4>
-      <p><%= @post.word %></p>
-      <h4>今日からすること</h4>
-        <%= render "favorites/favorite", post: @post %>
-      <p>
-        <%= @post.action %>
-      </p>
-      <p><%= link_to @post.favorites.count, favorites_path(@post) %>人が応援しています</p>
-
+  <div  class="post-box-show">
+    <div id="post_<%= @post.id %>">
+      <%= render "posts/post", post: @post %>
+    </div>
       <%# 自分の投稿のみ編集・削除ボタンを表示 %>
       <% if @post.user == current_user %>
         <p>公開設定：<%= @post.publish_status %></p>
@@ -32,5 +18,5 @@
 
       <%# コメントの表示 %>
       <%= render 'comments/comments_index', comments: @all_comments %>
-    </div>
+  </div>
 </div>
