@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h1>ジャンル管理</h1>
+      <%= form_for(@genre, url: {action: :create}) do |f| %>
+        <p>ジャンル名</p>
+        <%= f.text_field :name %>
+        <%= f.submit '作成' %>
+      <% end %>
+    <h1>ジャンル一覧</h1>
+      <% @genres.each do |genre| %>
+        <p><%= genre.name %></p>
+      <% end %>
+  </div>
+</div>

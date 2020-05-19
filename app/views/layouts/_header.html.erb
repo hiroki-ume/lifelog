@@ -11,6 +11,10 @@
       <li><%= link_to "みんなの投稿", posts_path %></li>
       <li><%= link_to "マイページ", user_path(current_user) %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+    <% elsif admin_signed_in? %>
+      <li>管理者用画面</li>
+      <li><%= link_to "ジャンル管理", admins_genres_path %></li>
+      <li><%= link_to "お問い合わせ一覧", "#" %></li>
     <% else %>
       <li><%= link_to "サイトについて", about_path %></li>
       <li><%= link_to "みんなの投稿", posts_path %></li>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #ユーザー側
   devise_for :users
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
@@ -19,6 +20,13 @@ Rails.application.routes.draw do
   get 'inquiries/new' => 'inquiries#new'
   post 'inquiries/confirm' => 'inquiries#confirm'
   post 'inquiries/create' => 'inquiries#create'
+
+  #管理側
+  devise_for :admins
+  namespace :admins do
+    resources :genres, only: [:index, :create]
+  end
+
 
 
   if Rails.env.development?
