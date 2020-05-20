@@ -4,7 +4,12 @@
   </div>
   <nav>
     <ul class="header-box">
-    <% if user_signed_in? #ログインユーザーのみようこそ、と新規投稿を表示%>
+    <% if admin_signed_in? %>
+      <li>管理者用画面</li>
+      <li><%= link_to "ジャンル管理", admins_genres_path %></li>
+      <li><%= link_to "お問い合わせ一覧", inquiries_path %></li>
+      <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></li>
+    <% elsif user_signed_in? #ログインユーザーのみようこそ、と新規投稿を表示%>
       <li>ようこそ、<%= current_user.name %>さん!</li>
       <li><%= link_to "サイトについて", about_path %></li>
       <li><%= link_to "新規投稿", new_post_path %></li>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #ユーザー側
   devise_for :users
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
@@ -16,9 +17,20 @@ Rails.application.routes.draw do
   get '/user/:user_id/favorite_posts' => 'posts#favorite_posts', as: "favorite_posts"
   get '/posts/:post_id/favorites' => 'favorites#index', as: "favorites"
   get '/ranking' => 'posts#ranking', as: "ranking"
-  get 'inquiries/new' => 'inquiries#new'
+  resources :inquiries, only: [:index, :new, :ceate]
   post 'inquiries/confirm' => 'inquiries#confirm'
-  post 'inquiries/create' => 'inquiries#create'
+
+  #管理側
+  devise_for :admins, skip: :all
+  devise_scope :admin do
+    get 'admins/sign_in' => 'admins/sessions#new', as: "new_admin_session"
+    post 'admins/sign_in' => 'admins/session#create', as: "admin_session"
+    get 'admins/sign_out' => 'admins/session#destroy', as: "destroy_admin_session"
+  end
+  namespace :admins do
+    resources :genres, only: [:index, :create, :update]
+  end
+
 
 
   if Rails.env.development?

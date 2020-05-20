@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new(publish_status: "publish", send_mail: true)
-    @genres = Genre.all
+    @genres = Genre.where(is_valid: true)
   end
 
   def create
