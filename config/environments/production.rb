@@ -62,6 +62,16 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "lifelog_#{Rails.env}"
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 587,
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    user_name: ENV['ADDRESS'],
+    password: ENV['PASSWORD'],
+    authentication: 'login',
+    enable_starttls_auto: true
+  }
 
   config.action_mailer.perform_caching = false
 
