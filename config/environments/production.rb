@@ -13,7 +13,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.consider_all_requests_local 
+  config.consider_all_requests_local
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -69,15 +69,17 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  mail = ENV['ADDRESS']
+  pass = ENV['PASSWORD']
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: 587,
     address: 'smtp.gmail.com',
     domain: 'gmail.com',
-    user_name: ENV['ADDRESS'],
-    password: ENV['PASSWORD'],
-    authentication: 'login',
+    user_name: mail,
+    password: pass,
+    authentication: 'plain',
     enable_starttls_auto: true
   }
 
