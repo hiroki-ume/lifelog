@@ -1,28 +1,24 @@
 require 'rails_helper'
 RSpec.describe Post, type: :model do
+  let(:user) { create(:user)}
 
-    context "データが正しく保存される" do
-        before do
-            @post = Post.new
-            @post.genre = " "
-            @post.word = "Hello WebCamp"
-            @post.action = "今日も晴れです。"
-            @post.save
-        end
-        it "全て入力してあるので保存される" do
-            expect(@post).to be_valid
-        end
+  describe '新規投稿のテスト' do
+    context "wordが入力されているとき" do
+      before do
+        login_user user
+        @post = Post.create(word: "a", genre_id: "1")
+      end
+      it "保存される" do
+        expect(@post).to be_valid
+      end
     end
-    context "データが正しく保存されない" do
-        before do
-            @post = Post.new
-            @post.word = ""
-            @post.action = "今日も晴れです。"
-            @post.save
-        end
-        it "wordが入力されていないので保存されない" do
-            expect(@post).to be_invalid
-            expect(@post.errors[:title]).to include("can't be blank")
-        end
+    context "wordが入力されていない時" do
+      before do
+        @post = Post.create(word: nil)
+      end
+      it "保存されない" do
+        expect(@post).to be_invalid
+      end
     end
+  end
 end

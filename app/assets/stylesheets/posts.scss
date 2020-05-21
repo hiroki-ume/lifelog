@@ -19,7 +19,6 @@ a {
 }
 
 .wrapper {
-  background-color: lightgray;
   width: 100%;
   padding-top: 30px;
   display: flex;
@@ -35,12 +34,18 @@ a {
     text-align: center;
     padding: 5px;
     margin-right: 100px;
+    position: fixed;
+    top: 120px;
+    left: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
-    .search_box {
+    .search-box {
+      .search-form {
+        border: 1px gray solid;
+      }
     }
 
     li {
@@ -63,13 +68,23 @@ a {
       &:last-child {
         margin-bottom: 50px;
       }
+      .word-title {
+        color: gray;
+        font-family: "Comic Sans MS", "arial unicode ms";
+      }
+      .action-title a {
+        color: gray;
+        font-family: "Comic Sans MS", "arial unicode ms";
+      }
+      .cheer-message {
+        color: gray;
+      }
     }
   }
 }
 
 // 新規投稿
 .form-box {
-  background-color: lightgray;
   padding: 10px;
   margin-top: 50px;
   display: flex;
@@ -83,7 +98,7 @@ a {
 
 .form {
   width: 500px;
-  // border: 1px solid black;
+  border: 1px solid black;
 }
 
 .genre-name {

@@ -45,6 +45,9 @@ group :development, :test do
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
   gem 'pry-byebug'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -82,4 +85,3 @@ gem 'kaminari'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'whenever', require: false
 gem 'jquery-rails'
-gem 'factory_bot_rails'

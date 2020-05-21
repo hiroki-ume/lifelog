@@ -1,7 +1,7 @@
-<div class="search_box">
+<div class="search-box">
   <%= form_tag :search_posts, method: :get do %>
-    <%= text_field_tag "q", "", placeholder: "例）早起き" %>
-    <%= submit_tag "検索" %>
+    <%= text_field_tag "q", "", placeholder: "例）早起き", class: "search-form" %>
+    <%= submit_tag "検索", class: "btn btn-default" %>
     <p style="color: gray;">投稿を検索できます</p>
   <% end %>
 </div>
@@ -13,15 +13,15 @@
       </li>
       <li>
         <i class="fas fa-list-ol fa-2x"></i>
-        <%= link_to "いいねランキング", ranking_path %><%= page_point(action: :ranking) %>
+        <%= link_to "いいねランキング", ranking_path %><br><%= page_point(action: :ranking) %>
       </li>
       <li>
         <i class="fas fa-user-friends fa-2x"></i>
-        <%= link_to "フォローユーザー投稿", follower_posts_path(current_user) %>
+        <%= link_to "フォローユーザー投稿", follower_posts_path(current_user) %><br>
         <%= page_point(follower_posts_path(current_user)) %>
       </li>
       <li>
         <i class="fas fa-thumbs-up fa-2x"></i>
-        <%= link_to "いいねしている投稿", favorite_posts_path(current_user) %><%= page_point(favorite_posts_path(current_user)) %></li>
+        <%= link_to "いいねしている投稿", favorite_posts_path(current_user) %><br><%= page_point(favorite_posts_path(current_user)) %></li>
     </ul>
   <% end %>

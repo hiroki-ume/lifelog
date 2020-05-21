@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   it "名前とメールとパスワードで登録できる" do
     expect(FactoryBot.build(:user)).to be_valid
   end
@@ -31,5 +30,4 @@ RSpec.describe User, type: :model do
   it "パスワードと確認用パスワードが異なっていたら登録できない" do
     expect(FactoryBot.build(:user, password: "password", password_confirmation: "passward")).to be_invalid
   end
-
 end
