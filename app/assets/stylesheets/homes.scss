@@ -1,13 +1,14 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1, h2, h3, p, a {
+
+h1,
+h2,
+h3,
+p,
+a {
   text-align: center;
 }
-
-body {
-}
-
 
 .btn {
   margin: 0 auto;
@@ -24,27 +25,23 @@ body {
   border-radius: 10px;
 }
 
-  .contents {
-    text-align: center;
-    margin: 10px;
-    width: 50%;
-    padding: 0px 70px;
-    text-align: center;
-  }
+.contents {
+  text-align: center;
+  margin: 10px;
+  width: 50%;
+  padding: 0px 70px;
+  text-align: center;
+}
 
 
 @media screen and (max-width:425px) {
-  .row {
+  .contents-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .contents-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .contents {
-        margin-bottom: 30px;
-      }
+    .contents {
+      margin-bottom: 30px;
     }
   }
-
 }

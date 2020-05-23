@@ -1,9 +1,10 @@
 <header>
   <div class="site-logo">
-    <%= link_to 'LifeLog', 'top' %>
+    <%= link_to 'LifeLog', '/top' %>
   </div>
   <nav>
-    <ul class="header-box">
+    <ul class="header-link-box">
+      <!-- admin用リンク -->
     <% if admin_signed_in? %>
       <li>管理者用画面</li>
       <li><%= link_to "ジャンル管理", admins_genres_path %></li>

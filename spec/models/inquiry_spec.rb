@@ -1,6 +1,6 @@
 require 'rails_helper'
-
-RSpec.describe Inquiry, type: :model do
+describe 'お問い合わせ機能' do
+  
   describe 'お問い合わせ機能 nameのテスト' do
     context 'nameがnilの時' do
       before do
@@ -11,19 +11,19 @@ RSpec.describe Inquiry, type: :model do
       end
       it "エラーメッセージが表示される" do
         @inquiry.valid?
-        expect(@inquiry.errors[:name]).to include("can't be blank")
+        expect(@inquiry.errors[:name]).to include("を入力してください")
       end
     end
-    context 'nameが１５文字以上の時' do
+    context 'nameが20文字以上の時' do
       before do
-        @inquiry = Inquiry.create(name: "hogehogehogehoge")
+        @inquiry = Inquiry.create(name: "hogehogehogehogehogehgoe")
       end
       it "保存されない" do
         expect(@inquiry).to be_invalid
       end
       it "エラーメッセージが表示される" do
         @inquiry.valid?
-        expect(@inquiry.errors[:name]).to include("15")
+        expect(@inquiry.errors[:name]).to include("は20文字以内で入力してください")
       end
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe Inquiry, type: :model do
         expect(@inquiry).to be_invalid
       end
       it "エラーメッセージが表示される" do
-
+        expect(@inquiry.errors[:email]).to include("を入力してください")
       end
     end
     context 'emailが５０文字以上の時' do
@@ -47,7 +47,32 @@ RSpec.describe Inquiry, type: :model do
         expect(@inquiry).to be_invalid
       end
       it "エラーメッセージが表示される" do
+        expect(@inquiry.errors[:email]).to include("は50文字以内で入力してください")
+      end
+    end
+  end
 
+  describe 'contentのテスト'do
+    context 'contentがnilのとき' do
+      before do
+        @inquiry = Inquiry.create(content: "")
+      end
+      it "保存されない" do
+          expect(@inquiry).to be_invalid
+      end
+      it "エラ〜メッセージが表示される" do
+        expect(@inquiry.errors[:content]).to include("を入力してください")
+      end
+    end
+    context 'contentが２００文字以上の時' do
+      before do
+        @inquiry = Inquiry.create(content: "#{"hoge" * 60}")
+      end
+      it "保存されない" do
+        expect(@inquiry).to be_invalid
+      end
+      it "エラ〜メッセージが表示される" do
+        expect(@inquiry.errors[:content]).to include("は200文字以内で入力してください")
       end
     end
   end

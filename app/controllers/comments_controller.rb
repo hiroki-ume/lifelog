@@ -11,11 +11,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @post = Post.find(params[:post_id])
-  #   @comment = Comment.find(params[:post_id])
-  # end
-
   def destroy
     comment = Comment.find(params[:post_id])
     if comment.user == current_user

@@ -1,4 +1,9 @@
 ja:
+  enums:
+    post:
+      publish_status:
+        publish: 公開
+        unpublish: 非公開
   activerecord:
     models:
       post: 投稿
@@ -8,7 +13,7 @@ ja:
         book: 本
       post:
         word: 気づき
-        publish_status: 公開設定
+        publish_status: 公開設
       inquiry:
         name: お名前
         email: メールアドレス

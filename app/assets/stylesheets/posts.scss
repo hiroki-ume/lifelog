@@ -26,6 +26,7 @@ a {
   justify-content: center;
   align-items: flex-start;
 
+  // 投稿一覧画面のサイドバー
   .sidebar {
     width: 20%;
     background-color: white;
@@ -41,13 +42,12 @@ a {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
+    // 検索窓
     .search-box {
       .search-form {
         border: 1px gray solid;
       }
     }
-
     li {
       list-style: none;
     }
@@ -56,7 +56,6 @@ a {
   .post-index {
     width: 50%;
     height: auto;
-
     .post-box {
       height: auto;
       padding: 10px;
@@ -83,7 +82,7 @@ a {
   }
 }
 
-// 新規投稿
+// 投稿画面
 .form-box {
   padding: 10px;
   margin-top: 50px;
@@ -91,11 +90,11 @@ a {
   flex-direction: column;
   justify-content: center;
 }
-
+// 入力フォームのボックス
 .field {
   margin-bottom: 20px;
 }
-
+// 入力フォーム
 .form {
   width: 500px;
   border: 1px solid black;
@@ -120,7 +119,10 @@ a {
 
 .post-date {
   color: gray;
+}
 
+.page-point {
+  color: red;
 }
 
 @media screen and (max-width:425px) {
@@ -137,6 +139,9 @@ a {
       // 投稿一覧画面
       .sidebar {
         width: 90%;
+        position: relative;
+        top: 5px;
+        margin-bottom: 5px;
         height: auto;
       }
 
@@ -174,8 +179,5 @@ a {
         width: 100%;
       }
     }
-
   }
-
-
 }

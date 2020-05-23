@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="form-box">
+  <div class="inquiry-form-box">
     <h3>
       いつもLifeLogのご利用ありがとうございます。<br>
       お返事はメールにてお送りさせていただきますので、<br>
@@ -9,18 +9,18 @@
     <%= render "layouts/error_messages", model: @inquiry %>
       <%= form_for(@inquiry, url: {action: :confirm}) do |f| %>
         <div class="field">
-          <%= f.label "お名前" %>
-          <%= f.text_field :name, placeholer: "20文字以内" %>
+          <%= f.label "お名前" %><br>
+          <%= f.text_field :name, placeholer: "20文字以内", class: "form" %>
         </div>
 
         <div class="field">
-          <%= f.label "メールアドレス" %>
-          <%= f.email_field :email %>
+          <%= f.label "メールアドレス" %><br>
+          <%= f.email_field :email, placeholer: "50文字以内", class: "form" %>
         </div>
 
         <div class="field">
-          <%= f.label "お問い合わせ内容" %>
-          <%= f.text_area :content, placeholder: "200文字以内" %>
+          <%= f.label "お問い合わせ内容" %><br>
+          <%= f.text_area :content, placeholder: "200文字以内", class: "form" %>
         </div>
 
         <div class="action">

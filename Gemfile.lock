@@ -123,6 +123,8 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_bot (5.2.0)
@@ -327,6 +329,13 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    slim-rails (3.2.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -342,6 +351,7 @@ GEM
     sshkit (1.21.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -387,6 +397,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  enum_help
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.4.1)
@@ -407,6 +418,7 @@ DEPENDENCIES
   rubocop-airbnb
   sass-rails (~> 5.0)
   selenium-webdriver
+  slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

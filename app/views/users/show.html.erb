@@ -1,8 +1,9 @@
 <div class="wrapper">
-  <div class="sidebar">
-    <%= attachment_image_tag @user, :profile_image, :fill, 40, 40,format: 'jpeg', fallback: "mountain.jpg", size: "60x60"  %><br>
+  <div class="profile-box">
+    <%= attachment_image_tag @user, :profile_image, :fill, 40, 40,format: 'jpeg',
+      fallback: "mountain.jpg", size: "60x60", class: "profile-image"  %><br>
     <h4 style="margin-bottom: 40px;"><%= @user.name %></h4>
-    <p><%= @user.posts.count %>件の投稿</p>
+    <p><%= @user.posts.count %>件の投稿</p>  <!-- 投稿の件数を表示-->
     <p><%= @user.introduce %></p>
     <%= link_to '編集', edit_user_path, class: "btn btn-default" if @user == current_user %>
     <br>

@@ -1,8 +1,13 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="user-index-field">
+  <h2>フォロワー</h2>
+  <% unless @user.followed_user.exists? %>
+    <h4>フォロワーはいません</h4>
+  <% else %>
     <% @user.followed_user.each do |followed| %>
-      <%= attachment_image_tag followed, :profile_image, fallback: "mountain.jpg" %>
-      <%= link_to followed.name, user_path(followed) %>
+      <div class="user-image-name">
+        <%= attachment_image_tag followed, :profile_image, fallback: "mountain.jpg", class: "profile-image" %>
+        <%= link_to followed.name, user_path(followed) %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>

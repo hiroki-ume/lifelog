@@ -9,19 +9,23 @@
     <ul>
       <li>
         <i class="fas fa-clipboard-list fa-2x"></i>
-        <%= link_to "みんなの投稿", posts_path %><br><%= page_point(action: :index) %>
+        <%= link_to "みんなの投稿", posts_path %>
+        <p class="page-point"><%= page_point(action: :index) %></p>
       </li>
       <li>
         <i class="fas fa-list-ol fa-2x"></i>
-        <%= link_to "いいねランキング", ranking_path %><br><%= page_point(action: :ranking) %>
+        <%= link_to "いいねランキング", ranking_path %>
+        <p class="page-point"><%= page_point(action: :ranking) %></p>
       </li>
       <li>
         <i class="fas fa-user-friends fa-2x"></i>
-        <%= link_to "フォローユーザー投稿", follower_posts_path(current_user) %><br>
-        <%= page_point(follower_posts_path(current_user)) %>
+        <%= link_to "フォローユーザー投稿", follower_posts_path(current_user) %>
+        <p class="page-point"><%= page_point(follower_posts_path(current_user)) %></p>
       </li>
       <li>
         <i class="fas fa-thumbs-up fa-2x"></i>
-        <%= link_to "いいねしている投稿", favorite_posts_path(current_user) %><br><%= page_point(favorite_posts_path(current_user)) %></li>
+        <%= link_to "いいねしている投稿", favorite_posts_path(current_user) %>
+        <p class="page-point"><%= page_point(favorite_posts_path(current_user))%></p>
+      </li>
     </ul>
   <% end %>
