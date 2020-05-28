@@ -4,11 +4,14 @@
   </div>
   <div class="post-index">
     <% @follower_posts.each do |post| %>
+      <%# いいねのajaxでの更新 %>
       <div id="post_<%= post.id %>", class="post-box">
         <%= render "posts/post", post: post %>
       </div>
     <% end %>
   </div>
+
+  <!-- トップへ戻るボタン -->
   <span id="back">
     <a href="#">
       <i class="far fa-hand-point-up fa-3x"></i>

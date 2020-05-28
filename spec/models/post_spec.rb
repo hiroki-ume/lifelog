@@ -1,15 +1,13 @@
 require 'rails_helper'
 RSpec.describe Post, type: :model do
-  let(:user) { create(:user)}
-  let(:post) { create(:post, user_id: user.id, genre_id: 1)}
+  let(:user) { create(:user) }
+  let(:genre) { Genre.create(name: "test") }
+  let(:post) { user.posts.create(word: "test", user_id: 1, genre_id: genre.id)}
 
   describe '新規投稿のテスト' do
     context "wordが入力されているとき" do
-      # before do
-      #   @post = Post.create(word: "a", genre_id: 1, )
-      # end
       it "保存される" do
-        expect(@post).to be_valid
+        expect(post).to be_valid
       end
     end
     context "wordが入力されていない時" do

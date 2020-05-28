@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @genres = Genre.all
   end
 
+  # いいねした記事を一覧表示する
   def favorite_posts
     @user = User.find(params[:user_id])
     @favorites = @user.favorites.all
@@ -17,12 +18,14 @@ class PostsController < ApplicationController
     end
   end
 
+  # フォローユーザーの投稿を一覧表示する
   def follower_posts
     @user = User.find(params[:user_id])
     @follower = @user.following_user
     @follower_posts = Post.where(user_id: @follower, publish_status: 1).order(created_at: 'DESC')
   end
 
+  # いいねの数順で一覧表示する
   def ranking
     @posts = []
     favorites = Favorite.group(:post_id).order('count(id) DESC').pluck(:post_id) #いいねをpost別で分けて、idの合計順に並べ、post_idを配列に代入
@@ -83,6 +86,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # 検索機能
   def search
     @posts = Post.search(params[:q]).where(publish_status: "publish").page(params[:page])
     render "index"
@@ -93,7 +97,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:source, :word, :action, :genre_id, :send_mail, :publish_status)
   end
-
-
-
 end

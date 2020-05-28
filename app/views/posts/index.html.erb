@@ -3,10 +3,12 @@
     <%= render "sidebar" %>
   </div>
   <div class="post-index">
+    <!-- 投稿および検索結果がない場合の記述 -->
     <% if @posts.blank? %>
-      <p>検索結果なし</p>
+      <p>表示できる投稿はありません</p>
     <% else %>
       <% @posts.each do |post| %>
+        <%# いいねされるとajaxで切り替え %>
         <div id="post_<%= post.id %>" class="post-box">
           <%= render "posts/post", post: post %>
         </div>
@@ -14,6 +16,8 @@
       <%= paginate @posts, class: "paginate" %>
     <% end %>
   </div>
+
+  <!-- ページトップへ戻るボタン -->
   <span id="back">
     <a href="#">
       <i class="far fa-hand-point-up fa-3x"></i>

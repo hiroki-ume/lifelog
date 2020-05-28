@@ -12,7 +12,7 @@
   position: absolute;
   left: 50px;
   top: 130px;
-  width: 25%;
+  width: 30%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -55,6 +55,9 @@
     position: relative;
     left: 0px;
     top: 0px;
+  }
+  .profile-image {
+    width: 100%;
   }
 
   .mailer-list {

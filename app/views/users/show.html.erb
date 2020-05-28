@@ -1,15 +1,15 @@
 <div class="wrapper">
   <div class="profile-box">
     <%= attachment_image_tag @user, :profile_image, :fill, 40, 40,format: 'jpeg',
-      fallback: "mountain.jpg", size: "60x60", class: "profile-image"  %><br>
+      fallback: "no-image.jpg", size: "60x60", class: "profile-image"  %><br>
     <h4 style="margin-bottom: 40px;"><%= @user.name %></h4>
     <p><%= @user.posts.count %>件の投稿</p>  <!-- 投稿の件数を表示-->
-    <p><%= @user.introduce %></p>
+    <p><%= @user.introduce %></p>　<!-- 自己紹介文の表示 -->
     <%= link_to '編集', edit_user_path, class: "btn btn-default" if @user == current_user %>
     <br>
 
-      <%# フォローボタンの設置 %>
-    <% unless @user == current_user # ログインユーザーには表示しない%>
+    <%# フォローボタンの設置 %>
+    <% unless @user == current_user # 自分のマイページには表示しない%>
       <% if current_user.following?(@user) %>
         <%= link_to 'フォロー解除', user_relationships_path(@user), method: :delete,
           class: "btn btn-danger"%>
@@ -22,31 +22,35 @@
     <p>フォロー中<%= link_to @user.follower.count, user_following_path(@user) %>
       フォロワー<%= link_to @user.followed.count, user_followed_path(@user) %></p>
 
-      <%# ログイン中のユーザーにのみ編集ボタン、通知リストを表示 %>
+    <%# ログイン中のユーザーにのみ編集ボタン、メールでお知らせリストを表示 %>
     <% if @user == current_user %>
-    <div class="mailer-list">
-      <h4>『メールでお知らせ』<br>リスト</h4>
-      <% @posts.where(send_mail: true).each do |post| #通知trueのpostのみを表示%>
+      <div class="mailer-list">
+        <h4>『メールでお知らせ』<br>リスト</h4>
+        <% @posts.where(send_mail: true).each do |post| #通知trueのpostのみを表示%>
+          <p><%= link_to post.action, post_path(post) %></p>
+        <% end %>
 
-        <p><%= link_to post.action, post_path(post) %></p>
-      <% end %>
         <%# メール自体の送信の有無を選択 %>
-      <%= form_for(@user) do |f| %>
-        <%= f.check_box :send_mail, {}, :true, :false %>
-        <%= f.label "メールでお知らせ" %><br>
-        <%= f.submit "変更", class: "btn btn-default" %>
-      <% end %>
-
-    </div>
+        <%= form_for(@user) do |f| %>
+          <%= f.check_box :send_mail, {}, :true, :false %>
+          <%= f.label "メールでお知らせ" %><br>
+          <%= f.submit "変更", class: "btn btn-default" %>
+        <% end %>
+      </div>
     <% end %>
   </div>
+
+  <!-- ユーザーの投稿を一覧表示 -->
   <div class="post-index">
-      <% @posts.each do |post| %>
+    <% @posts.each do |post| %>
+      <%# いいねされるとajaxで切り替え %>
       <div id="post_<%= post.id %>" class="post-box">
         <%= render "posts/post", post: post %>
       </div>
-      <% end %>
+    <% end %>
   </div>
+
+  <!-- ページトップへ戻るボタン -->
   <span id="back">
     <a href="#">
       <i class="far fa-hand-point-up fa-3x"></i>

@@ -5,7 +5,7 @@
   <% else %>
     <% @user.following_user.each do |follower| %>
       <div class="user-image-name">
-        <%= attachment_image_tag follower, :profile_image, fallback: "mountain.jpg", class: "profile-image" %>
+        <%= attachment_image_tag follower, :profile_image, fallback: "no-image.jpg", class: "profile-image" %>
         <%= link_to follower.name, user_path(follower) %>
       </div>
     <% end %>

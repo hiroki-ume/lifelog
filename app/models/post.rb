@@ -3,7 +3,6 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  attr_accessor :mailer
   validates :word, presence: true
 
   #公開・非公開のenum設定
@@ -12,7 +11,7 @@ class Post < ApplicationRecord
   #公開trueの投稿のみ取り出すscope
   scope :publishable, -> { where(publish_status: 1) }
 
-  # いいね されてるかを検証するメソッド
+  # ユーザーがいいねしてるかを検証するメソッド
   def favorited?(user)
     favorites.where(user_id: user.id).exists?
   end

@@ -1,7 +1,9 @@
 <p><%= link_to post.user.name, user_path(post.user) %>さん</p>
+
 <h4>
   <div class="word-title">
     <span class="genre-name"><%= post.genre.name %></span>
+    <%# sourceが入力されているかどうかで表示を分岐 %>
     <% unless post.source.blank? %>
       『<%= post.source %>』からの気づき
     <% else %>
@@ -9,14 +11,18 @@
     <% end %>
   </div>
 </h4>
+
 <p><%= post.word %></p>
+
 <h4 class="action-title"><%= link_to '今日からすること', post_path(post) %></h4>
-  <%# いいねボタンの設置 %>
-  <%= render "favorites/favorite", post: post %>
-<p>
-  <%= post.action %>
-</p>
+<%# いいねボタンの設置 %>
+<%= render "favorites/favorite", post: post %>
+
+<p><%= post.action %></p>
+
+<!-- いいねしている人数を表示 -->
 <p class="cheer-message">
   <%= link_to post.favorites.count, favorites_path(post) %>人が応援しています!
 </p>
+
 <p class="post-date"><%= post.created_at.strftime('%m月%d日') %>投稿</p>

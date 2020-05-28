@@ -1,22 +1,24 @@
 <div class="wrapper">
   <div  class="post-box-show">
+    <!-- いいねされるとajaxで切り替え -->
     <div id="post_<%= @post.id %>">
       <%= render "posts/post", post: @post %>
     </div>
-      <%# 自分の投稿のみ編集・削除ボタンを表示 %>
-      <% if @post.user == current_user %>
-        <p>公開設定：<%= @post.publish_status_i18n %></p>
-        <p>メールでお知らせ：<%= @post.send_mail?? "する":"しない" %></p>
-        <%= link_to "編集", edit_post_path(@post), class: "btn btn-default" %>
-        <%= link_to "削除", post_path(@post), method: :delete,
-            data: {confirm: "削除しますか？"}, class: "btn btn-default" %>
-      <% end %>
 
-      <%# コメント入力フォームの表示 %>
-      <p class="alert-message"><%= flash[:alert] %></p>
-      <%= render 'comments/form' %>
+    <%# 自分の投稿のみ編集・削除ボタンを表示 %>
+    <% if @post.user == current_user %>
+      <p>公開設定：<%= @post.publish_status_i18n %></p>
+      <p>メールでお知らせ：<%= @post.send_mail?? "する":"しない" %></p>
+      <%= link_to "編集", edit_post_path(@post), class: "btn btn-default" %>
+      <%= link_to "削除", post_path(@post), method: :delete,
+          data: {confirm: "削除しますか？"}, class: "btn btn-default" %>
+    <% end %>
 
-      <%# コメントの表示 %>
-      <%= render 'comments/comments_index', comments: @all_comments %>
+    <%# コメント入力フォームの表示 %>
+    <p class="alert-message"><%= flash[:alert] %></p>　<!-- エラーメッセージの表示-->
+    <%= render 'comments/form' %>
+
+    <%# コメントの表示 %>
+    <%= render 'comments/comments_index', comments: @all_comments %>
   </div>
 </div>

@@ -1,5 +1,6 @@
 class Admins::GenresController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!　#adminでログインしていないと処理されない
+
   def index
     @genres = Genre.all
     @genre = Genre.new

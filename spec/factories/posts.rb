@@ -1,5 +1,6 @@
-# FactroyBot.define do
-#   factory :post do
-#     word {"hogehogehoge"}
-#   end
-# end
+FactoryBot.define do
+  factory :post do
+    word { "hogehogehoge" }
+    user
+  end
+end

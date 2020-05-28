@@ -12,6 +12,15 @@ RSpec.describe InquiriesController, type: :controller do
         get :new
         expect(response).to render_template :new
       end
+      it "入力に失敗する" do
+        visit new_inquiry_path
+        fill_in 'inquiry[name]', with: ''
+        click_button '確認画面へ'
+        expect(page).to have_content 'を入力してください'
+      end
+      it "お問い合わせ内容確認画面に遷移できる" do
+
+      end
     end
   end
 end
