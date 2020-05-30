@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @favorites = @user.favorites.all
     @posts = []
     @favorites.each do |favorite|
-      if favorite.post.publish_status == 1
+      unless favorite.post.publish_status == 2
         @posts << favorite.post
       end
     end
