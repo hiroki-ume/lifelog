@@ -1,6 +1,10 @@
 <p><%= link_to post.user.name, user_path(post.user) %>さん</p>
 
 <h4>
+  <%# 非公開画像には非公開と表示する %>
+  <% if post.publish_status == "unpublish" %>
+    <p style="border: red 3px solid;">非公開</p>
+  <% end %>
   <div class="word-title">
     <span class="genre-name"><%= post.genre.name %></span>
     <%# sourceが入力されているかどうかで表示を分岐 %>
