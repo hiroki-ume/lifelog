@@ -3,7 +3,10 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  validates :word, presence: true
+  validates :source, length: {maximum: 50}
+  validates :word, presence: true, length: {maximum: 140}
+  validates :action, length: {maximum: 100}
+
 
   #公開・非公開のenum設定
   enum publish_status: { unpublish: 0, publish: 1}

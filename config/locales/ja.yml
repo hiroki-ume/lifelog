@@ -13,6 +13,8 @@ ja:
         book: 本
       post:
         word: 気づき
+        source: 見たもの
+        action: 今日からすること
         publish_status: 公開設
       inquiry:
         name: お名前
