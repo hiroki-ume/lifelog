@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :genre
   has_many :favorites, dependent: :destroy
+  has_many :favirite_posts, through: :favorites, source: :post
   has_many :comments, dependent: :destroy
   validates :source, length: {maximum: 50}
   validates :word, presence: true, length: {maximum: 140}

@@ -9,13 +9,6 @@ class PostsController < ApplicationController
   # いいねした記事を一覧表示する
   def favorite_posts
     @user = User.find(params[:user_id])
-    @favorites = @user.favorites.all
-    @posts = []
-    @favorites.each do |favorite|
-      unless favorite.post.publish_status == 2
-        @posts << favorite.post
-      end
-    end
   end
 
   # フォローユーザーの投稿を一覧表示する
@@ -27,14 +20,9 @@ class PostsController < ApplicationController
 
   # いいねの数順で一覧表示する
   def ranking
-    @posts = []
-    favorites = Favorite.group(:post_id).order('count(id) DESC').pluck(:post_id) #いいねをpost別で分けて、idの合計順に並べ、post_idを配列に代入
-    favorites.each do |favorite|
-      post = Post.find(favorite)
-      if post.publish_status == "publish" #publishのpostのみを@postsに代入
-        @posts << post
-      end
-    end
+    #いいねをpost別で分けて、idの合計順に並べ、post_idを@favoritesに配列で代入
+    @favorites = Favorite.group(:post_id).order('count(id) DESC')
+      .pluck(:post_id)
   end
 
   def show
