@@ -14,6 +14,7 @@ class Post < ApplicationRecord
 
   #公開trueの投稿のみ取り出すscope
   scope :publishable, -> { where(publish_status: 1) }
+  scope :user_only, -> (user){ user ? all : publishable } 
 
   # ユーザーがいいねしてるかを検証するメソッド
   def favorited?(user)

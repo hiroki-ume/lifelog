@@ -44,9 +44,9 @@
   <div class="post-index">
     <% @posts.each do |post| %>
       <%# いいねされるとajaxで切り替え %>
-      <div id="post_<%= post.id %>" class="post-box">
-        <%= render "posts/post", post: post %>
-      </div>
+        <div id="post_<%= post.id %>" class="post-box">
+          <%= render "posts/post", post: post %>
+        </div>
     <% end %>
   </div>
 

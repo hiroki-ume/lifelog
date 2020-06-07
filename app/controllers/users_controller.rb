@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.all.order(id: "DESC")
+    # マイページとログインユーザーが一致する場合のみ非公開の投稿を表示する
+    if @user == current_user
+      @posts = @user.posts.all.order(id: "DESC")
+    else
+      @posts = @user.posts.publishable.order(id: :desc)
+    end
   end
 
   def edit
