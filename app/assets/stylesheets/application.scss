@@ -51,20 +51,24 @@ header {
   top: 10px;
   float: left;
   list-style: none;
+}
 
-  li {
-    width: 100px;
-    text-align: center;
-    float: left;
-    margin-left: 10px;
-    line-height: 70px;
-    border: 1px solid black;
-    background-color: white;
-    border-radius: 5px;
-
-    a:hover {
-      color: gray;
-      text-shadow: 3px 3px 10px black;
+.header-link {
+  transition: all 0.5s;
+  width: 100px;
+  float: left;
+  text-align: center;
+  margin-left: 10px;
+  line-height: 70px;
+  border: 1px solid black;
+  border-radius: 5px;
+  &:hover {
+    background-color: lightgray;
+    a {
+      display: block;
+      a:hover {
+        color: white;
+      }
     }
   }
 }
