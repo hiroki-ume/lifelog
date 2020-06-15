@@ -4,14 +4,14 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :name, {presence: true, length: {maximum: 15}}
+  validates :email, {presence: true, uniqueness: true, length: {maximum: 100}}
   validates :encrypted_password, presence: true
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
-  
+
   has_many :comments, dependent: :destroy
   attachment :profile_image
   # フォロー機能

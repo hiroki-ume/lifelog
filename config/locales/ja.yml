@@ -15,8 +15,12 @@ ja:
         word: 気づき
         source: 見たもの
         action: 今日からすること
-        publish_status: 公開設
+        publish_status: 公開設定
       inquiry:
         name: お名前
         email: メールアドレス
         content: 内容
+      user:
+        name: お名前
+        email: メールアドレス
+        encrypted_password: パスワード
