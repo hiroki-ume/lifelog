@@ -10,14 +10,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
-    if @user.update(user_params)
+    @user = User.find(params[:id])
+    if @user == current_user
+      @user.update(user_params)
+      flash[:notice] = "会員情報を変更しました。"
       redirect_to @user
     else
+      flash[:notice] = "ユーザーが違います。"
       render :edit
     end
   end

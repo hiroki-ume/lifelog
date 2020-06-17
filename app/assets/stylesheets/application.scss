@@ -111,6 +111,13 @@ footer {
   color: red;
 }
 
+// フラッシュメッセージの表示
+.flash {
+  width: 100%;
+  text-align: center;
+  background-color: lightblue;
+}
+
 #back {
   position: fixed;
   right: 100px;
