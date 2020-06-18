@@ -8,7 +8,6 @@
 
 h4 {
   display: inline-block;
-  border-bottom: 1px gray solid;
 }
 
 a {
@@ -98,7 +97,14 @@ a {
 // 入力フォーム
 .form {
   width: 500px;
-  border: 1px solid black;
+  border: 1px solid gray;
+  padding: 5px;
+}
+.message-tag {
+  color: white;
+  background-color: red;
+  padding: 2px;
+  border-radius: 5px;
 }
 
 .genre-name {

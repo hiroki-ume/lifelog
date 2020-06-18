@@ -3,7 +3,7 @@
 <h4>
   <%# 非公開画像には非公開と表示する %>
   <% if post.publish_status == "unpublish" %>
-    <p style="border: red 3px solid;">非公開</p>
+    <p class="message-tag">非公開</p>
   <% end %>
   <div class="word-title">
     <span class="genre-name"><%= post.genre.name %></span>
