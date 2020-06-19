@@ -43,7 +43,9 @@ a {
     // 検索窓
     .search-box {
       .search-form {
-        border: 1px gray solid;
+        border: 1px lightgray solid;
+        padding: 5px;
+        border-radius: 3px;
       }
     }
     li {
@@ -108,10 +110,12 @@ a {
 }
 
 .genre-name {
-  border: 2px solid gray;
-  border-bottom: none;
-  padding: 5px 5px 0 5px;
-  border-radius: 7px;
+  // border: 2px solid gray;
+  // border-bottom: none;
+  background-color: gray;
+  color: white;
+  padding: 0 10px;
+  border-radius: 5px;
 }
 
 .post-box-show {
