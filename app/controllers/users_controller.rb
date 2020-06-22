@@ -11,17 +11,26 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user != current_user
+      flash[:notice] = "権限がありません"
+      redirect_to @user
+    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user == current_user
-      @user.update(user_params)
-      flash[:notice] = "会員情報を変更しました。"
-      redirect_to @user
+      if @user == current_user
+        @user.update(user_params)
+        flash[:notice] = "会員情報を変更しました。"
+        redirect_to @user
+      else
+        flash[:notice] = "ユーザーが違います。"
+        render :edit
+      end
     else
-      flash[:notice] = "ユーザーが違います。"
-      render :edit
+      flash[:notice] = "権限がありません"
+      redirect_to @user
     end
   end
 
