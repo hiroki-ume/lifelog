@@ -8,7 +8,8 @@ class PostsController < ApplicationController
 
   # いいねした記事を一覧表示する
   def favorite_posts
-    @user = User.find(params[:user_id])
+    @user = current_user
+    @favorites = @user.favorites.all
   end
 
   # フォローユーザーの投稿を一覧表示する
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     @genres = Genre.all
     if @post.save
-      flash[:success] = "Your post up to the world!"
+      flash[:success] = "投稿しました"
       redirect_to :posts
     else
       render :new
@@ -50,16 +51,24 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
+    if @post.user_id != current_user
+      flash[:notice] = "権限がありません"
+      redirect_to @post
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
-      DailyMailer.send_updated_mail(current_user).deliver
-      flash[:success] = "Success!"
-      redirect_to @post
+    if @post.user_id == current_user.id
+      if @post.update(post_params)
+        DailyMailer.send_updated_mail(current_user).deliver
+        redirect_to @post
+      else
+        render :edit
+      end
     else
-      render :edit
+      flash[:notice] = "権限がありません"
+      redirect_to @post
     end
   end
 

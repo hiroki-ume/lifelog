@@ -3,7 +3,8 @@
     <%= render "sidebar" %>
   </div>
   <div class="post-index">
-    <% @user.favorite_posts.each do |post| %>
+    <% @favorites.each do |favorite| %>
+      <% post = Post.find_by(id: favorite.post_id) %>
       <%# いいねされると、ajaxで投稿の内容が更新される %>
       <div id="post_<%= post.id %>" class="post-box">
         <%= render "posts/post", post: post %>
