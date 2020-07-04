@@ -51,7 +51,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
-    if @post.user_id != current_user
+    unless @post.user_id == current_user.id
       flash[:notice] = "権限がありません"
       redirect_to @post
     end

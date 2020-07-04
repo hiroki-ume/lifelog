@@ -6,8 +6,13 @@
     <% if user_signed_in? %>
       <div class="action-index">
         <h3>やることリスト</h3>
-        <% @posts.each do |post| %>
-          <p><%= link_to post.action, post_path(post) %></p>
+        <% if @posts.exists? %>
+          <% @posts.each do |post| %>
+            <p><%= link_to post.action, post_path(post) %></p>
+          <% end %>
+        <% else %>
+          <p>まだ投稿がありません</p>
+          <p><%= link_to "投稿する", new_post_path %></p>
         <% end %>
       </div>
     <% else %>

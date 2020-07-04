@@ -24,3 +24,8 @@ ja:
         name: お名前
         email: メールアドレス
         encrypted_password: パスワード
+  devise:
+    sessions:
+      user:
+        signed_out: ログアウトしました
+        signed_in: ログインしました
