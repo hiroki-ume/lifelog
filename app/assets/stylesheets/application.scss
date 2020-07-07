@@ -16,6 +16,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @mixin form{
+   border: 1px lightgray solid;
+   padding: 5px;
+   border-radius: 3px;
+ }
+
 * {
   box-sizing: border-box;
   margin: 0px;

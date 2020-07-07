@@ -5,6 +5,7 @@
 // require posts.scss
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "application";
 
 h4 {
   display: inline-block;
@@ -43,9 +44,7 @@ a {
     // 検索窓
     .search-box {
       .search-form {
-        border: 1px lightgray solid;
-        padding: 5px;
-        border-radius: 3px;
+        @include form;
       }
     }
     li {
@@ -98,15 +97,17 @@ a {
 }
 // 入力フォーム
 .form {
-  width: 500px;
-  border: 1px solid gray;
-  padding: 5px;
+  @include form;
 }
 .message-tag {
   color: white;
   background-color: red;
   padding: 2px;
   border-radius: 5px;
+}
+
+.center {
+  text-align: center;
 }
 
 .genre-name {

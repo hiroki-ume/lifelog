@@ -2,7 +2,7 @@
   <%= form_for(@post) do |f| %>
   <div class="field">
     <%= f.label "ジャンルを選択してください" %><br>
-    <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+    <%= f.collection_select(:genre_id, @genres, :id, :name, class: "form") %>
   </div>
 
 
@@ -21,19 +21,19 @@
     <%= f.text_area :action, class: "form", placeholder: "100字以内" %>
   </div>
 
-  <div class="field">
+  <div class="field center">
     <%= f.check_box :publish_status, {}, :unpublish, :publish %>
     <%= f.label "公開しない" %>
 
   </div>
 
-  <div class="field">
+  <div class="field center">
     <%= f.check_box :send_mail, {}, "true", "false" %>
     <%= f.label "毎日メールでお知らせ" %><br>
 
   </div>
 
-  <div class="action">
+  <div class="action center">
     <%= f.submit 'posts', class: "btn btn-default", value: "投稿" %>
   </div>
   <% end %>
