@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root "homes#about"
   get 'about' => 'homes#about'
   get 'top' => 'homes#top'
+  get "genres/:genre_id" => "posts#genre"
   resources :posts do
     get :search, on: :collection
     resource :favorites, only: [:index, :create, :destroy]

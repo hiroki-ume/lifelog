@@ -1,0 +1,29 @@
+<header>
+  <style media="screen">
+    .col-lg-6 {
+      background-color: lightgray;
+    }
+  </style>
+</header>
+<div class="row">
+  <div class="col-lg-6">
+    <%= render "layouts/error_messages", model: @genre %>
+    <h1>ジャンル管理</h1>
+      <%= form_for(@genre, url: {action: :create}) do |f| %>
+        <strong style="text-align: center;">ジャンル名</strong>
+        <%= f.text_field :name %>
+        <%= f.submit '作成' %>
+      <% end %>
+    <h1>ジャンル一覧</h1>
+      <% @genres.each do |genre| %>
+        <h3>
+          <%= genre.name %>
+          <%= form_for(genre, url: admins_genre_path(genre)) do |f| %>
+            <%= f.radio_button :is_valid, true %>有効
+            <%= f.radio_button :is_valid, false %>無効
+            <%= f.submit "更新" %>
+          <% end %>
+        </h3>
+      <% end %>
+  </div>
+</div>
