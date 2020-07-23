@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #ユーザー側
+  # ユーザー側
   devise_for :users
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :inquiries, only: [:index, :new, :create]
   post 'inquiries/confirm' => 'inquiries#confirm'
 
-  #管理側
+  # 管理側
   devise_for :admins, skip: :all
   devise_scope :admin do
     get 'admins/sign_in' => 'admins/sessions#new', as: "new_admin_session"

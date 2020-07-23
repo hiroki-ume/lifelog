@@ -21,9 +21,8 @@ class PostsController < ApplicationController
 
   # いいねの数順で一覧表示する
   def ranking
-    #いいねをpost別で分けて、idの合計順に並べ、post_idを@favoritesに配列で代入
-    @favorites = Favorite.group(:post_id).order('count(id) DESC')
-      .pluck(:post_id)
+    # いいねをpost別で分けて、idの合計順に並べ、post_idを@favoritesに配列で代入
+    @favorites = Favorite.group(:post_id).order('count(id) DESC').pluck(:post_id)
   end
 
   def show

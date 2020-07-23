@@ -4,17 +4,17 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favirite_posts, through: :favorites, source: :post
   has_many :comments, dependent: :destroy
-  validates :source, length: {maximum: 50}
-  validates :word, presence: true, length: {maximum: 140}
-  validates :action, length: {maximum: 100}
+  validates :source, length: { maximum: 50 }
+  validates :word, presence: true, length: { maximum: 140 }
+  validates :action, length: { maximum: 100 }
 
 
-  #公開・非公開のenum設定
-  enum publish_status: { unpublish: 0, publish: 1}
+  # 公開・非公開のenum設定
+  enum publish_status: { unpublish: 0, publish: 1 }
 
-  #公開trueの投稿のみ取り出すscope
+  # 公開trueの投稿のみ取り出すscope
   scope :publishable, -> { where(publish_status: 1) }
-  scope :user_only, -> (user){ user ? all : publishable } 
+  scope :user_only, -> (user){ user ? all : publishable }
 
   # ユーザーがいいねしてるかを検証するメソッド
   def favorited?(user)
